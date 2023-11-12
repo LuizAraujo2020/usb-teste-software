@@ -129,3 +129,12 @@ button {
     border-color: transparent;
     background: linear-gradient(180deg, #999 0%, #D0D0D0 100%);
 }
+
+.highlight {
+   border-bottom: 2px solid #A0151E;
+   color: #A0151E;
+}
+
+.highlight::placeholder {
+   color: #A0151E;
+}

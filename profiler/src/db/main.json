@@ -1,0 +1,14 @@
+{
+    "Account1": {
+        "name": "Luiz Carlos",
+        "email": "luiz@email.com",
+        "password": "password123",
+        "job": "iOS Developer"
+    }, 
+    "Account2": { 
+        "name": "Luiz Carlos",
+        "email": "luiz@email.com",
+        "password": "password123",
+        "job": "iOS Developer"
+    }
+}

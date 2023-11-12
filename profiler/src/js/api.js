@@ -1,6 +1,16 @@
-async function fetchProfileData() {
-    const url = 'https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/profile.json'
+// $(document).ready(function(){
+//     document.querySelector('#login-email').value = mock.email
+// })
 
-    const fetching = await fetch(url)
-    return await fetching.json()
+class User {
+    name;
+    email;
+    password;
+    job;
 }
+  
+var mock = new User()
+mock.name = "Luiz Carlos";
+mock.email = "luiz@email.com";
+mock.password = "password123";
+mock.job = "iOS Developer";
