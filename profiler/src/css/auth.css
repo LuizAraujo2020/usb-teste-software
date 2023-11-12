@@ -32,7 +32,6 @@
     align-items: center;
  }
 
-
  /*========== TEXTS ==========*/
 
  h1 {
@@ -147,3 +146,8 @@ button {
 #signup-tips {
    text-align: center;
 }
+
+#main-name {
+   padding: 100px;
+}
+

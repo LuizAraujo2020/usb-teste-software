@@ -1,5 +1,6 @@
 // $(document).ready(function(){
-//     document.querySelector('#login-email').value = mock.email
+//     // document.querySelector('#login-email').value = mock.email
+//         localStorage.setItem('currentUser', -1);
 // })
 
 class User {
