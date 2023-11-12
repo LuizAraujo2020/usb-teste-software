@@ -15,13 +15,13 @@
     </header>
     
     <main>
-        <input class="inputbox" type="email" id="signup-email" onChange="checkEmailField('signup-email');" placeholder="email">
-        <input class="inputbox" type="email" id="signup-confirm-email" onChange="checkEmailField('signup-confirm-email');" placeholder="confirm email">
+        <input class="inputbox" type="email" id="signup-email" onkeyup="checkEmailField('signup-email');" placeholder="email">
+        <input class="inputbox" type="email" id="signup-confirm-email" onkeyup="checkEmailField('signup-confirm-email');" placeholder="confirm email">
         
-        <input class="inputbox" type="password" id="signup-password" placeholder="password">
-        <input class="inputbox" type="password" id="signup-confirm-password" placeholder="confirm password">
+        <input class="inputbox" type="password" id="signup-password" onkeyup="checkPasswordField('signup-password');" placeholder="password">
+        <input class="inputbox" type="password" id="signup-confirm-password" onkeyup="checkPasswordField('signup-confirm-password');" placeholder="confirm password">
 
-        <button class="disabled" type="submit" id="signup-button" onclick="signupButtonOnClick()">
+        <button class="disabled" type="submit" id="signup-button" onclick="signupButtonOnClick()" disabled>
             Sign up
         </button>
 

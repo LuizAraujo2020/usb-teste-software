@@ -75,7 +75,7 @@ function loginFindRegisteredEmail() {
 //=========== REGISTER ===========
 
 function signupButtonOnClick() {
-    console.log('OPAAAAAAA');
+
     if (signupEmail.value == signupConfirmEmail.value && signupPassword.value == signupConfirmPassword.value) {
         let usr = new User()
         usr.email = signupEmail.value;
@@ -83,7 +83,9 @@ function signupButtonOnClick() {
 
         mocks.push(usr);
 
-        signupTips.innerText = '';
+        // signupTips.innerText = ' ';
+
+        console.log('OPAAAAAAA');
 
         currentUser = mocks.length - 1;
         window.location = './main.html';
@@ -114,37 +116,70 @@ function signupButtonOnClick() {
 };
 
 function checkEmailField(id) {
-    console.log('OPAAA')
     const field = document.getElementById(id);
 
-    field.classList.add('highlight');
     if (field.value.includes('@') && field.value.includes('.')) {
         signupState[id] = true;
         field.classList.remove('highlight');
     } else {
+        field.classList.add('highlight')
         signupState[id] = false;
         return
     }
 
-    if (field.value.length < 3) {
+    if (field.value.length < 5) {
         signupState[id] = false;
-        return
-    }
-
-    if (signupState[id] === false) {
         field.classList.add('highlight');
         return
     }
 
-    if (id == "signup-confirm-email") {
-        if (signupState["signup-email"] === signupState["signup-confirm-email"]) {
-            document.getElementById("signup-email").classList.remove('highlight');
-            document.getElementById("signup-confirm-email").classList.remove('highlight');
-        }
-    }
+    // if (signupState["signup-email"] === true && signupState["signup-confirm-email"] === true) {
+    //     const email = document.getElementById("signup-email");
+    //     const confirm = document.getElementById("signup-confirm-email");
+
+    //     if (email.value != confirm.value) {
+    //         email.classList.add('highlight');
+    //         confirm.classList.add('highlight');
+
+    //         signupState["signup-email"] = false;
+    //         signupState["signup-confirm-email"] = false;
+
+    //         signupTips.innerText = 'Hey! \n Emails should match.';
+    //     }  else {
+    //         email.classList.remove('highlight');
+    //         confirm.classList.remove('highlight');
+    //         signupTips.innerText = ' ';
+    //     }
+    // }
     
+    field.classList.remove('highlight');
+    signupState[id] = true;
+
+    checkSignupButton();
 }
 
+function checkPasswordField(id) {
+    const field = document.getElementById(id);
+
+    if (field.value.length < 8) {
+        field.classList.add('highlight');
+        signupState[id] = false;
+        return
+    } else {
+        field.classList.remove('highlight');
+        signupState[id] = true;
+
+        checkSignupButton();
+    }
+}
+
+function checkSignupButton() {
+
+    if (signupState["signup-email"] == true && signupState["signup-confirm-email"] == true && signupState["signup-password"] == true && signupState["signup-confirm-password"] == true ) {
+        signupButton.disabled = false;
+        signupButton.classList.remove('disabled');
+    }
+}
 //=========== MAIN PAGE ===========
 
 const mainName = document.getElementById('main-name');
