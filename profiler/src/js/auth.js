@@ -1,4 +1,16 @@
 
+let signupState = {
+    "signup-email": false,
+    "signup-confirm-email": false,
+    "signup-password": false,
+    "signup-confirm-password": false,
+    "signup-button": false
+}
+
+
+const loginTips = document.getElementById('login-tips');
+const signupTips = document.getElementById('"signup-tips');
+
 const loginButton = document.getElementById('login-button')
 const loginEmail = document.getElementById('login-email')
 const loginPassword = document.getElementById('login-password')
@@ -16,6 +28,9 @@ function loadJSON() {
 
     console.log(users);
 }
+
+
+//=========== AUTH ===========
 
 function loginButtonOnClick() {
     const enteredEmail = loginEmail.value;
@@ -49,25 +64,40 @@ function loginButtonOnClick() {
         if (enteredPassword !== element.password) {
             loginPassword.classList.add('highlight');
         }
+
+        loginTips.innerText = 'Something went wrong! \nTry again or go to Sign Up page to register.';
     }
 };
 
-function signupButtonOnClick() {
+function loginFindRegisteredEmail() {
 
-    if (signupEmail.value === signupConfirmEmail.value && signupPassword.value === signupConfirmPassword.value) {
+}
+//=========== REGISTER ===========
+
+function signupButtonOnClick() {
+    console.log('OPAAAAAAA');
+    if (signupEmail.value == signupConfirmEmail.value && signupPassword.value == signupConfirmPassword.value) {
         let usr = new User()
         usr.email = signupEmail.value;
         usr.password = signupPassword.value;
 
         mocks.push(usr);
 
+        signupTips.innerText = '';
+
         currentUser = mocks.length - 1;
         window.location = './main.html';
     } 
+
+    // if (signupEmail.value === '' || signupConfirmEmail.value === '' || signupPassword.value === '' || signupConfirmPassword.value === '') {
+    //     signupTips.innerText = 'Warning, fill all the fields!';
+    //     return
+    // }
     
     if (signupEmail.value !== signupConfirmEmail.value) {
         signupEmail.classList.add('highlight');
         signupConfirmEmail.classList.add('highlight');
+        signupTips.innerText = 'Hey, the emails must be equal!';
     } else {
         signupEmail.classList.remove('highlight');
         signupConfirmEmail.classList.remove('highlight');
@@ -76,14 +106,46 @@ function signupButtonOnClick() {
     if (signupPassword.value !== signupConfirmPassword.value) {
         signupPassword.classList.add('highlight');
         signupConfirmPassword.classList.add('highlight');
+        signupTips.innerText = 'Oops, both passwords must match!';
     } else {
         signupPassword.classList.remove('highlight');
         signupConfirmPassword.classList.remove('highlight');
-    }
+    }    
 };
 
+function checkEmailField(id) {
+    console.log('OPAAA')
+    const field = document.getElementById(id);
 
-//===========
+    field.classList.add('highlight');
+    if (field.value.includes('@') && field.value.includes('.')) {
+        signupState[id] = true;
+        field.classList.remove('highlight');
+    } else {
+        signupState[id] = false;
+        return
+    }
+
+    if (field.value.length < 3) {
+        signupState[id] = false;
+        return
+    }
+
+    if (signupState[id] === false) {
+        field.classList.add('highlight');
+        return
+    }
+
+    if (id == "signup-confirm-email") {
+        if (signupState["signup-email"] === signupState["signup-confirm-email"]) {
+            document.getElementById("signup-email").classList.remove('highlight');
+            document.getElementById("signup-confirm-email").classList.remove('highlight');
+        }
+    }
+    
+}
+
+//=========== MAIN PAGE ===========
 
 const mainName = document.getElementById('main-name');
 const mainJob = document.getElementById('main-job');

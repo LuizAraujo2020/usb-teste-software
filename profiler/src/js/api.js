@@ -31,7 +31,7 @@ mock.name = "Luiz Carlos";
 mock.email = "luiz@email.com";
 mock.password = "password123";
 mock.job = "iOS Developer";
-mock.image = "https://avatars.githubusercontent.com/u/18700326?s=96&v=4";
+mock.image = 'https://avatars.githubusercontent.com/u/18700326?s=96&v=4';
 mock.experience = 2;
 mock.highlight1 = {
     title: '5+',
@@ -128,7 +128,6 @@ mock.contacts = [
         "text": "Phone",
     }
 ]
-
 
 
 var mocks = [];
