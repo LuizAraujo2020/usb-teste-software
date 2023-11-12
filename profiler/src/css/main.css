@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+/*========== NORMALIZE ==========*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #111;
+ }
+
+
+ /*========== MAIN TAGS ==========*/
+
+ body {
+    max-width: 55rem;
+ }
+
+ header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+
+ main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+
+ /*========== TEXTS ==========*/
+
+ h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.125rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+    margin: 1.5rem;
+    margin-bottom: 2rem;
+ }
+
+ 
+ /*========== LINKS ==========*/
+
+a {
+    text-decoration: none;
+}
+
+a h1 {
+   color: #3D3D3D;
+}
+
+a h1:hover {
+   color: #6f6f6f;
+   transition-duration: 0.5s;
+}
+
+
+/*========== PARAGRAPHS ==========*/
+
+p {
+    color: #838383;
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+/*========== INPUTS ==========*/
+
+.inputbox {
+    max-width: 20rem;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #fff;
+    font-size: 1.4rem;
+    color: #ccc;  
+
+    padding-bottom: .5rem;
+    margin: 1rem;
+}
+
+
+/*========== BUTTONS ==========*/
+
+button {
+    width: 15rem;
+    height: 3rem;
+    flex-shrink: 0;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+    border-radius: 1.813rem;
+    border-color: transparent;
+    background: linear-gradient(180deg, #A0151E 0%, #C21A1F 100%);
+        
+    margin: 2rem;
+}
+
+.disabled {
+    width: 15rem;
+    height: 3rem;
+    flex-shrink: 0;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+    border-radius: 1.813rem;
+    border-color: transparent;
+    background: linear-gradient(180deg, #999 0%, #D0D0D0 100%);
+}
