@@ -12,27 +12,27 @@
 <body>
     <header>
         <section id="primary">
-            <img src="./resources/placeholder.png" alt="">
+            <img id="main-image" src="./resources/placeholder.png" alt="">
             <h4>Hello, I am</h4>
-            <h1>Luiz Araujo</h1>
-            <h2>iOS Developer</h2>
+            <h1 id="main-name">Inserir Nome</h1>
+            <h2 id="main-job">Inserir Cargo/Profissional/Stack</h2>
         </section>
 
         <section id="secondary">
             <div class="experience">
-                <p class="text-highlight">2+</p>
-                <h1>Years Experience</h1>
+                <p id="main-experience-year" class="text-highlight">1</p>
+                <h1 id="main-experience-text">Years Experience</h1>
             </div>
 
             <div id="highlights">
-                <div class="card-highlight">
+                <div id="main-highlight1" class="card-highlight">
                     <!-- <div class="container"> -->
                         <h3>5</h3>
                         <p>Years </p>
                     <!-- </div> -->
                 </div>
 
-                <div class="card-highlight">
+                <div id="main-highlight2" class="card-highlight">
                     <!-- <div class="container"> -->
                         <h3>5</h3>
                         <p>Years </p>
@@ -45,11 +45,11 @@
     <main>
         <section>
             <h1>About Me</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolorem hic minima ipsam voluptatum nulla reprehenderit sapiente numquam quia quaerat dignissimos, laudantium soluta omnis odio deserunt explicabo aliquid. Quibusdam?</p>
+            <p id="main-about" markdown="1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolorem hic minima ipsam voluptatum nulla reprehenderit sapiente numquam quia quaerat dignissimos, laudantium soluta omnis odio deserunt explicabo aliquid. Quibusdam?</p>
         </section>
 
-        <section>
-            <h1>Apps</h1>
+        <section id="main-apps">
+            <h1>Top Apps</h1>
 
             <div class="card app">
                 <img src="./resources/placeholder.png" alt="Click here to change image">
@@ -58,49 +58,24 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolorem hic minima ipsam voluptatum nulla reprehenderit sapiente numquam quia quaerat dignissimos, laudantium soluta omnis odio deserunt explicabo aliquid.</p>
                 </div>
             </div>
-
-            <div class="card app">
-                <img src="./resources/placeholder.png" alt="Click here to change image">
-                <div class="app-content">
-                    <h3>Name of the App</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolorem hic minima ipsam voluptatum nulla reprehenderit sapiente numquam quia quaerat dignissimos, laudantium soluta omnis odio deserunt explicabo aliquid.</p>
-                </div>
-            </div>
-
-            <div class="card app">
-                <img src="./resources/placeholder.png" alt="Click here to change image">
-                <div class="app-content">
-                    <h3>Name of the App</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolorem hic minima ipsam voluptatum nulla reprehenderit sapiente numquam quia quaerat dignissimos, laudantium soluta omnis odio deserunt explicabo aliquid.</p>
-                </div>
             </div>
         </section>
 
         <section>
-            <h1>Certifications</h1>
+            <h1>Top Certifications</h1>
 
             <div id="certifications">
                 <div class="card certification">
                     <img src="./resources/placeholder.png" alt="Click here to change image">
                     <p>Nome do Curso (2h)</p>
                 </div>
-
-                <div class="card certification">
-                    <img src="./resources/placeholder.png" alt="Click here to change image">
-                    <p>Nome do Curso (2h)</p>
-                </div>
-
-                <div class="card certification">
-                    <img src="./resources/placeholder.png" alt="Click here to change image">
-                    <p>Nome do Curso (2h)</p>
-                </div>
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <h1>Repositories</h1>
 
-            <div id="certifications">
+            <div id="repositories">
                 <div class="card repository">
                     <img src="./resources/placeholder.png" alt="Click here to change image">
                     <p>Nome do Repo (2h)</p>
@@ -116,7 +91,7 @@
                     <p>Nome do Repo (2h)</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section id="contacts">
             <h1>Ways To Contact Me</h1>
@@ -127,19 +102,11 @@
                 <h3>luizcarlos_bsb2006@hotmail.com</h3>
                 <p>Professional email</p>
             </div>
-            
-            <div class="card contact">
-                <h3>luizcarlos_bsb2006@hotmail.com</h3>
-                <p>Professional email</p>
-            </div>
-
-            <div class="card contact">
-                <h3>luizcarlos_bsb2006@hotmail.com</h3>
-                <p>Professional email</p>
-            </div>
         </section>
     </main>
 
-    <script src="./src/js/main.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/github.js"></script>
+    <script src="./js/auth.js"></script>
 </body>
 </html>
