@@ -14,3 +14,7 @@ mock.name = "Luiz Carlos";
 mock.email = "luiz@email.com";
 mock.password = "password123";
 mock.job = "iOS Developer";
+  
+var mocks = [];
+
+mocks.push(mock);
