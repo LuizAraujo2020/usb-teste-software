@@ -256,7 +256,8 @@ function createHighlight(title, text) {
 }
 
 function createMainApps(apps) {
-    let result = '<h1>Top Apps</h1>';
+    // let result = `<h1 id="topApps-example" onclick="addNewApp('topApps-example')">Top Apps</h1>`;
+    let result = `<h1>Top Apps</h1>`;
     
     apps.forEach(element => {
         result += `<div class="card app">
@@ -422,6 +423,37 @@ mainAbout.addEventListener("click", () => {
     mainAbout.innerText = mocks[currentUser].about;
 });
 
+function addNewApp(id) {
+    let obj = {
+        "image": "",
+        "title": "",
+        "text": "",
+    }
+
+    const input = prompt('Insert an URL to the App image');
+    if (isTextInvalid(input)) {
+        return
+    }
+    obj.image = input;
+
+    const input2 = prompt('Insert the name of the App');
+    if (isTextInvalid(input2)) {
+        return
+    }
+    obj.title = input2;
+
+    const input3 = prompt('Insert description of the App');
+    if (isTextInvalid(input3)) {
+        return
+    }
+
+    obj.text = input3;
+
+    usr.apps.push(obj);
+
+    mainApps.innerHTML = createMainApps(usr.apps);
+};
+
 const carAppExample = document.getElementById('card-app-example');
 const appImg = document.getElementById('app-img');
 const appName = document.getElementById('app-name');
@@ -434,13 +466,13 @@ carAppExample.addEventListener("click", () => {
     }
     appImg.innerText = input;
 
-    const input2 = prompt('Insert an URL to the App image');
+    const input2 = prompt('Insert the name of the App');
     if (isTextInvalid(input2)) {
         return
     }
     appName.innerText = input2;
 
-    const input3 = prompt('Insert an URL to the App image');
+    const input3 = prompt('Insert description of the App');
     if (isTextInvalid(input3)) {
         return
     }
