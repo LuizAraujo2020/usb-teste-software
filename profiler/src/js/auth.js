@@ -1,11 +1,27 @@
+/// Pegar params da URL -> ?email=email@email.com
+const queryString = window.location.search;
+/// Parsear os params
+const urlParams = new URLSearchParams(queryString);
+const emai = urlParams.get('email');
+
+console.log(emai);
 
 let currentUser;
+let isLoggedIn;
 
 (function () {
     if (localStorage.getItem("currentUser") === null) {
         localStorage.setItem('currentUser', -1);
+        currentUser = -1;
     } else {
         currentUser = localStorage.getItem("currentUser");
+    }
+
+    if (localStorage.getItem("logged") === null) {
+        localStorage.setItem('logged', false);
+        isLoggedIn = localStorage.getItem("logged");
+    } else {
+        isLoggedIn = localStorage.getItem("logged");
     }
 })();
 
@@ -61,8 +77,9 @@ function loginButtonOnClick() {
         if (enteredEmail === element.email && enteredPassword === element.password) {
             currentUser = index;
             localStorage.setItem('currentUser', index);
+            localStorage.setItem('logged', true);
             console.log(`INDEX: ${index}`)
-            window.location = './src/main.html';
+            window.location = `./src/main.html?email=${enteredEmail}`;
         } 
         
         if (enteredEmail !== element.email) {
@@ -100,7 +117,8 @@ function signupButtonOnClick() {
         currentUser = mocks.length - 1;
 
         localStorage.setItem('currentUser', currentUser);
-        window.location = './main.html';
+        localStorage.setItem('logged', true);
+        window.location = `./main.html?email=${signupEmail.value}`;
     } 
 
     // if (signupEmail.value === '' || signupConfirmEmail.value === '' || signupPassword.value === '' || signupConfirmPassword.value === '') {
@@ -328,6 +346,8 @@ function isTextInvalid(text) {
 }
 
 mainName.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     const input = prompt('Insert your name');
     if (isTextInvalid(input)) {
         return
@@ -338,6 +358,8 @@ mainName.addEventListener("click", () => {
 });
 
 mainJob.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    
     const input = prompt('Insert your job title');
     if (isTextInvalid(input)) {
         return
