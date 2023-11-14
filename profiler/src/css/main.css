@@ -304,3 +304,53 @@ main section p {
 .contact {
     width: 40rem;
 }
+
+
+/*========== USER BUTTONS ==========*/
+
+#main-loginInfo {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+    margin-top: 2rem;
+}
+
+#main-loginInfo button {
+    all: unset;
+}
+
+#main-loginInfo h4 {
+    color: #838383;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.25;
+
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    margin-right: .5rem;
+    margin-left: .5rem;
+
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+#main-loginInfo button h4:hover {
+    color: white;
+    background-color: #838383;
+    border-radius: 10%;
+
+    transition: 0.5s;
+}
+
+#main-loginInfo button h4 span {
+    color: white;
+}

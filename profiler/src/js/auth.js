@@ -2,9 +2,7 @@
 const queryString = window.location.search;
 /// Parsear os params
 const urlParams = new URLSearchParams(queryString);
-const emai = urlParams.get('email');
-
-console.log(emai);
+const currentEmail = urlParams.get('email');
 
 let currentUser;
 let isLoggedIn;
@@ -94,8 +92,47 @@ function loginButtonOnClick() {
     }
 };
 
-function loginFindRegisteredEmail() {
 
+//=========== LOGOUT ===========
+
+const loginInfo = document.getElementById('main-loginInfo');
+
+function gotLoginPage() {
+    window.location = `../index.html`;
+}
+
+function gotSignupPage() {
+    window.location = `./signup.html`;
+}
+
+function logout() {
+    localStorage.setItem('currentUser', -1);
+    localStorage.setItem('logged', false);
+
+    currentUser = -1;
+    isLoggedIn = false;
+
+    createAuthButtons();
+
+    console.log(`isLoggedIn: ${isLoggedIn}`);
+    console.log(`currentUser: ${currentUser}`);
+}
+
+createAuthButtons();
+
+function createAuthButtons() {
+
+    if (isLoggedIn === false || isLoggedIn === null) { 
+        loginInfo.innerHTML = `
+        <button onclick="gotLoginPage()" type="submit"><h4>Login</h4></button>
+        <button onclick="gotSignupPage()" type="submit"><h4>Sign up</h4></button>
+        `;
+     } else {
+        loginInfo.innerHTML = `
+        <h4>Olá, <span>${mocks[currentUser].name}</span></h4>
+        <button onclick="logout()" type="submit"><h4>Logout</h4></button>
+        `;
+     }
 }
 
 
@@ -346,7 +383,7 @@ function isTextInvalid(text) {
 }
 
 mainName.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn === false || isLoggedIn === null) { return }
 
     const input = prompt('Insert your name');
     if (isTextInvalid(input)) {
@@ -358,7 +395,7 @@ mainName.addEventListener("click", () => {
 });
 
 mainJob.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn === false || isLoggedIn === null) { return }
     
     const input = prompt('Insert your job title');
     if (isTextInvalid(input)) {
@@ -370,6 +407,8 @@ mainJob.addEventListener("click", () => {
 });
 
 mainImage.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === null) { return }
+
     const input = prompt('Insert an URL for an image');
     if (isTextInvalid(input)) {
         return
@@ -380,6 +419,8 @@ mainImage.addEventListener("click", () => {
 });
 
 mainYears.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === null) { return }
+
     const input = prompt('Insert how many years you have been working');
     if (input < 0 || input > 60) {
         return
@@ -402,6 +443,8 @@ mainYears.addEventListener("click", () => {
 // });
 
 mainHighlight1.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     const input = prompt('Insert title to highlight.');
     if (isTextInvalid(input)) {
         return
@@ -419,6 +462,8 @@ mainHighlight1.addEventListener("click", () => {
 });
 
 mainHighlight2.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     const input = prompt('Insert title to highlight.');
     if (isTextInvalid(input)) {
         return
@@ -436,6 +481,8 @@ mainHighlight2.addEventListener("click", () => {
 });
 
 mainAbout.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     const input = prompt('Insert a small text to describe yourself.');
     if (isTextInvalid(input)) {
         return
@@ -446,6 +493,8 @@ mainAbout.addEventListener("click", () => {
 });
 
 function addNewApp(id) {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     let obj = {
         "image": "",
         "title": "",
@@ -482,6 +531,8 @@ const appName = document.getElementById('app-name');
 const appText = document.getElementById('app-text');
 
 carAppExample.addEventListener("click", () => {
+    if (isLoggedIn === false || isLoggedIn === null) { return }
+
     const input = prompt('Insert an URL to the App image');
     if (isTextInvalid(input)) {
         return
@@ -503,6 +554,8 @@ carAppExample.addEventListener("click", () => {
 });
 
 function changeTextFromID(id, text) {
+    if (isLoggedIn === false || isLoggedIn === nul) { return }
+
     const element = document.getElementById(id);
 
     const input = prompt(text);
