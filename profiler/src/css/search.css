@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+ /*========== NORMALIZE ==========*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #111;
+}
+
+body {
+    width: 875px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+}
+
+button {
+    all: unset;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: auto;
+}
+
+section {
+    margin-top: 5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+h1 {
+    color: #6f6f6f;
+    text-align: center;
+    font-family: Inter;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+h1:hover {
+   color: #FFF;
+   transition-duration: 0.5s;
+}
+
+.text-highlight {
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    background: linear-gradient(103deg, #95131D 0%, #C21A1F 59.42%, #C21A1F 59.42%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inputbox {
+    width: 28rem;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #fff;
+    font-size: 1.4rem;
+    color: #ccc;  
+
+    padding-bottom: .5rem;
+    margin: 1rem;
+}
+
+.sign-buttons {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: 20rem;
+}
+
+.sign-buttons h1 {
+    padding: 1rem;
+}
+ 
+p {
+    color: #838383;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+    background-color: transparent;
+    text-align: center;
+}
+
+.hide {
+   display: none;
+   visibility: hidden;
+}

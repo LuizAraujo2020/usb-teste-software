@@ -15,13 +15,29 @@ let isLoggedIn;
         currentUser = localStorage.getItem("currentUser");
     }
 
-    if (localStorage.getItem("logged") === null) {
-        localStorage.setItem('logged', false);
-        isLoggedIn = localStorage.getItem("logged");
+    // if (localStorage.getItem("logged") === null) {
+    //     localStorage.setItem('logged', false);
+    //     isLoggedIn = false;
+    //     getIndexByEmail();
+    // } else {
+    //     isLoggedIn = localStorage.getItem("logged");
+    // }
+    if (localStorage.getItem("logged") == true) {
+        isLoggedIn = true
     } else {
-        isLoggedIn = localStorage.getItem("logged");
+        localStorage.setItem('logged', false);
+        isLoggedIn = false;
+        getIndexByEmail();
     }
 })();
+
+
+// (function () {
+//     if (isLoggedIn == false) {
+//         currentEmail
+//     }
+// })();
+
 
 let signupState = {
     "signup-email": false,
@@ -76,6 +92,7 @@ function loginButtonOnClick() {
             currentUser = index;
             localStorage.setItem('currentUser', index);
             localStorage.setItem('logged', true);
+            isLoggedIn = true;
             console.log(`INDEX: ${index}`)
             window.location = `./src/main.html?email=${enteredEmail}`;
         } 
@@ -105,6 +122,10 @@ function gotSignupPage() {
     window.location = `./signup.html`;
 }
 
+function gotSearchPage() {
+    window.location = `./search.html`;
+}
+
 function logout() {
     localStorage.setItem('currentUser', -1);
     localStorage.setItem('logged', false);
@@ -124,15 +145,34 @@ function createAuthButtons() {
 
     if (isLoggedIn === false || isLoggedIn === null) { 
         loginInfo.innerHTML = `
+        <button onclick="gotSearchPage()" type="submit"><h4>Search</h4></button>
         <button onclick="gotLoginPage()" type="submit"><h4>Login</h4></button>
         <button onclick="gotSignupPage()" type="submit"><h4>Sign up</h4></button>
         `;
      } else {
+        // let name;
+        // if (mocks[currentUser].name === undefined) {
+        //     name = 'Person';
+        // } else {
+        //     name = mocks[currentUser].name;
+        // }
+
         loginInfo.innerHTML = `
-        <h4>Olá, <span>${mocks[currentUser].name}</span></h4>
         <button onclick="logout()" type="submit"><h4>Logout</h4></button>
         `;
      }
+}
+
+function getIndexByEmail() {
+    for (let index = 0; index < mocks.length; index++) {
+        console.log("asdasdasdasdasdadasdasd");
+
+        if (currentEmail == mocks[index].email) {
+            currentUser = index;
+            localStorage.setItem('currentUser', index);
+            updateScreen();
+        } 
+    }
 }
 
 
@@ -155,6 +195,7 @@ function signupButtonOnClick() {
 
         localStorage.setItem('currentUser', currentUser);
         localStorage.setItem('logged', true);
+        isLoggedIn = true;
         window.location = `./main.html?email=${signupEmail.value}`;
     } 
 
@@ -266,23 +307,109 @@ const mainCertifications = document.getElementById('certifications');
 const mainRepositories = document.getElementById('repositories');
 const mainContacts = document.getElementById('contacts');
 
-(function () {
 
-    const cur = localStorage.getItem('currentUser');
-    if (cur >= 0 && typeof cur !== 'undefined'){
-        console.log(`CUR: ${cur}`);
-    }  else {
-        return
-    }
-    let usr = mocks[cur];
+// (function () {
 
-    // if (usr.name === null || typeof usr.name !== 'undefined') {
+//     // const cur = localStorage.getItem('currentUser');
+//     // if (cur >= 0 && typeof cur !== 'undefined'){
+//     //     console.log(`CUR: ${cur}`);
+//     // }  else {
+//     //     getIndexByEmail();
+//     //     return
+//     // }
+
+//     const index = findUserIndex;
+
+//     if (index == -2) {
+//         const mainBody = document.getElementById("main-body");
+//         mainBody.innerHTML = `
+//             <h1>No user found, change the email in the URL or try to login</h1>
+//         `;
+
+//         return
+//     }
+//     let usr = mocks[index];
+
+//     // if (usr.name === null || typeof usr.name !== 'undefined') {
+//     //     return
+//     // }
+
+//     if (usr.image == null) {
+//         return
+//     }
+//     mainImage.src = usr.image;
+//     mainName.innerHTML = usr.name;
+//     mainJob.innerHTML = usr.job;
+//     mainYears.innerHTML = `${usr.experience}+`;
+
+//     if (usr.experience <= 1) {
+//         mainYearsText.innerHTML = 'Year Experience';
+//     } else {
+//         mainYearsText.innerHTML = 'Years Experience';
+//     }
+
+//     mainHighlight1.innerHTML = createHighlight(usr.highlight1.title, usr.highlight1.text);
+//     mainHighlight2.innerHTML = createHighlight(usr.highlight2.title, usr.highlight2.text);
+
+//     mainAbout.innerHTML = usr.about;
+
+//     mainApps.innerHTML = createMainApps(usr.apps);
+    
+//     mainCertifications.innerHTML = createMainCertifications(usr.certifications);
+
+//     mainContacts.innerHTML = createMainContacts(usr.contacts);
+// })();
+updateScreen();
+function updateScreen() {
+
+    // const cur = localStorage.getItem('currentUser');
+    // if (cur >= 0 && typeof cur !== 'undefined'){
+    //     console.log(`CUR: ${cur}`);
+    // }  else {
+    //     return
+    // }
+    // let usr = mocks[currentUser];
+
+    // // if (usr.name === null || typeof usr.name !== 'undefined') {
+    // //     return
+    // // }
+
+    // if (usr.image === undefined) {
     //     return
     // }
 
-    if (usr.image === undefined) {
+    let kkkk;
+
+    console.log(`email: ${currentEmail}`);
+
+    for (let index = 0; index < mocks.length; index++) {
+
+        if (currentEmail == mocks[index].email) {
+            kkkk = index;
+        } 
+    }
+
+    if (kkkk < 0) {
+        const mainBody = document.getElementById("main-body");
+        mainBody.innerHTML = `
+            <h1>No user found, change the email in the URL or try to login</h1>
+        `;
+
         return
     }
+
+    console.log(`KKKKKKK: ${kkkk}`);
+    let usr = mocks[kkkk];
+
+    console.table(usr)
+
+    if (usr.image == null) {
+        usr.image = "./resources/placeholder.png";
+    }
+    if (usr.name == null) {
+        usr.name = "Insert name";
+    }
+
     mainImage.src = usr.image;
     mainName.innerHTML = usr.name;
     mainJob.innerHTML = usr.job;
@@ -304,7 +431,7 @@ const mainContacts = document.getElementById('contacts');
     mainCertifications.innerHTML = createMainCertifications(usr.certifications);
 
     mainContacts.innerHTML = createMainContacts(usr.contacts);
-})();
+}
 
 function createHighlight(title, text) {
     return `<h3>${title}</h3><p>${text}</p>`
@@ -383,7 +510,7 @@ function isTextInvalid(text) {
 }
 
 mainName.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === null) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert your name');
     if (isTextInvalid(input)) {
@@ -395,7 +522,7 @@ mainName.addEventListener("click", () => {
 });
 
 mainJob.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === null) { return }
+    if (isLoggedIn != true) { return }
     
     const input = prompt('Insert your job title');
     if (isTextInvalid(input)) {
@@ -407,7 +534,7 @@ mainJob.addEventListener("click", () => {
 });
 
 mainImage.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === null) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert an URL for an image');
     if (isTextInvalid(input)) {
@@ -419,7 +546,7 @@ mainImage.addEventListener("click", () => {
 });
 
 mainYears.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === null) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert how many years you have been working');
     if (input < 0 || input > 60) {
@@ -443,7 +570,7 @@ mainYears.addEventListener("click", () => {
 // });
 
 mainHighlight1.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert title to highlight.');
     if (isTextInvalid(input)) {
@@ -462,7 +589,7 @@ mainHighlight1.addEventListener("click", () => {
 });
 
 mainHighlight2.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert title to highlight.');
     if (isTextInvalid(input)) {
@@ -481,7 +608,7 @@ mainHighlight2.addEventListener("click", () => {
 });
 
 mainAbout.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert a small text to describe yourself.');
     if (isTextInvalid(input)) {
@@ -493,7 +620,7 @@ mainAbout.addEventListener("click", () => {
 });
 
 function addNewApp(id) {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn != true) { return }
 
     let obj = {
         "image": "",
@@ -531,7 +658,7 @@ const appName = document.getElementById('app-name');
 const appText = document.getElementById('app-text');
 
 carAppExample.addEventListener("click", () => {
-    if (isLoggedIn === false || isLoggedIn === null) { return }
+    if (isLoggedIn != true) { return }
 
     const input = prompt('Insert an URL to the App image');
     if (isTextInvalid(input)) {
@@ -554,7 +681,7 @@ carAppExample.addEventListener("click", () => {
 });
 
 function changeTextFromID(id, text) {
-    if (isLoggedIn === false || isLoggedIn === nul) { return }
+    if (isLoggedIn != true) { return }
 
     const element = document.getElementById(id);
 

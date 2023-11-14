@@ -351,6 +351,6 @@ main section p {
     transition: 0.5s;
 }
 
-#main-loginInfo button h4 span {
+#main-loginInfo h4 span {
     color: white;
 }

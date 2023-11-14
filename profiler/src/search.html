@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Custom Style Sheets-->
+    <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+    <header>
+        <section>
+            <div class="sign-buttons">
+                <a href="../index.html" rel="noopener noreferrer"><h1>LOGIN</h1></a>
+                <a href="../index.html" rel="noopener noreferrer"><h1>SIGN UP</h1></a>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section id="search-404">
+            <p id="search-main-title" class="text-highlight">SEARCH USER</p>
+        </section>
+
+        <section>
+            <input class="inputbox" onkeypress="updateList()" name="search-input" id="search-input" placeholder="search email" type="text">
+        </section>
+
+        <section id="search-list">
+
+        </section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/github.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>
