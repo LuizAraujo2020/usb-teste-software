@@ -178,15 +178,15 @@ function dismissErrorMessage() {
 
 //=========== NAVIGATION ===========
 
-function gotSignupPage() {
+function gotoSignupPage() {
     window.location = `./signup.html`;
 }
 
-function gotSearchPage() {
+function gotoSearchPage() {
     window.location = `./search.html`;
 }
 
 function gotoMainPage(email) {
-    localStorage.setItem('logged', true);
-    window.location = `./src/main.html?email=${email}`;
+    localStorage.setItem("logged", true);
+    window.location = `./src/main.html?email=${email}&isLoggedIn=true`;
 }

@@ -326,14 +326,15 @@ function gotoLoginPage() {
     window.location = `../index.html`;
 }
 
-function gotSearchPage() {
+function gotoSearchPage() {
     window.location = `./search.html`;
 }
 
 function gotoMainPage(email) {
     localStorage.setItem('logged', true);
     // window.location = `./src/main.html?email=${email}`;
-    window.location = `./main.html?email=${email}`;
+    window.location = `./main.html?email=${email}&isLoggedIn=true`;
+    // window.location = `./src/main.html?email=${email}&isLoggedIn=true`;
 
     // localStorage.setItem('logged', true);
     // isLoggedIn = true;

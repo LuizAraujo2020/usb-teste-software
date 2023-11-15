@@ -24,7 +24,7 @@ function updateList() {
 }
 
 function createSingleRow(email) {
-    return `<a href="./main.html?${email}" rel="noopener noreferrer">
+    return `<a href="./main.html?email=${email}">
         <p>${email}</p>
     </a>`;
 }

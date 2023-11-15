@@ -1,3 +1,80 @@
+/// Pegar params da URL -> ?email=email@email.com
+const queryString = window.location.search;
+/// Parsear os params
+const urlParams = new URLSearchParams(queryString);
+
+const currentEmail = urlParams.get('email');
+let logged = urlParams.get('isLoggedIn');
+
+let currentUser;
+let isLoggedIn;
+
+// (function() {
+
+//     if (localStorage.getItem("logged") == true) {
+//         isLoggedIn = true
+
+//     } else {
+//         localStorage.setItem("logged", false);
+//         isLoggedIn = false;
+//     }
+
+//     console.log(`LOGGED: ${isLoggedIn}`);
+// })();
+
+(function() {
+
+    if (logged == "true") {
+        isLoggedIn = true
+
+    } else {
+        isLoggedIn = false;
+    }
+
+    console.log(`LOGGED: ${isLoggedIn}`);
+})();
+
+//=========== INIT ===========
+// getEmailFromURL();
+getUserByEmail(currentEmail);
+// checkIsLoggedIn();
+
+// function getEmailFromURL() {
+//     /// Pegar params da URL -> ?email=email@email.com
+//     const queryString = window.location.search;
+//     /// Parsear os params
+//     const urlParams = new URLSearchParams(queryString);
+    
+//     currentEmail = urlParams.get('email');
+// }
+
+function getUserByEmail(email) {
+    currentUser = mocks.find((element) => element.email == email);
+
+    if (currentUser == undefined) {
+        gotoSearchPage()
+    }
+}
+
+// function checkIsLoggedIn() {
+//     if (localStorage.getItem("logged") == true) {
+//         isLoggedIn = true
+
+//     } else {
+//         localStorage.setItem("logged", false);
+//         isLoggedIn = false;
+//     }
+
+//     console.log(`LOGGED: ${isLoggedIn}`);
+// }
+
+// function loadJSON() {
+//     const users = fetchJSON('./src/db/main.json');
+
+//     console.log(users);
+// }
+
+
 const mainLoginInfo = document.getElementById('main-loginInfo');
 
 const mainName = document.getElementById('main-name');
@@ -17,52 +94,8 @@ const mainCertifications = document.getElementById('certifications');
 const mainRepositories = document.getElementById('repositories');
 const mainContacts = document.getElementById('contacts');
 
-let currentEmail;
-let currentUser;
-let isLoggedIn;
-
-
-//=========== INIT ===========
-getEmailFromURL();
-getUserByEmail(currentEmail);
-checkIsLoggedIn();
-
 createAuthButtons();
 updateScreen();
-
-function getEmailFromURL() {
-    /// Pegar params da URL -> ?email=email@email.com
-    const queryString = window.location.search;
-    /// Parsear os params
-    const urlParams = new URLSearchParams(queryString);
-    
-    currentEmail = urlParams.get('email');
-}
-
-function checkIsLoggedIn() {
-    if (localStorage.getItem("logged") == true) {
-        isLoggedIn = true
-
-    } else {
-        localStorage.setItem('logged', false);
-        isLoggedIn = false;
-    }
-}
-
-function getUserByEmail(email) {
-    currentUser = mocks.find((element) => element.email == email);
-
-    if (currentUser == undefined) {
-        gotoSearchPage()
-    }
-}
-
-// function loadJSON() {
-//     const users = fetchJSON('./src/db/main.json');
-
-//     console.log(users);
-// }
-
 
 
 //=========== LOGOUT ===========
