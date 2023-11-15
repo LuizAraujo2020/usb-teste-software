@@ -1,8 +1,3 @@
-// $(document).ready(function(){
-//     // document.querySelector('#login-email').value = mock.email
-//         localStorage.setItem('currentUser', -1);
-// })
-
 class User {
     name;
     email;
@@ -132,9 +127,6 @@ mock.contacts = [
 var mocks = [];
 
 mocks.push(mock);
-
-
-
 
 
 var mockEmpty = new User()

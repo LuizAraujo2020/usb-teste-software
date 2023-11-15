@@ -51,149 +51,35 @@ function signupButtonOnClick() {
         return
     }
 
-    // if (checkCredentialsAreRight(enteredEmail, enteredPassword) == true) {
-        const before = mocks.length;
-        console.log(`BEFORE:  ${before}`);
-        let usr = mockEmpty;
-        
-        usr.email = enteredEmail;
-        usr.password = enteredPassword;
-        
-        mocks.push(usr);
-
-        // jsonSave(mocks);
-
-
-        var dictstring = JSON.stringify(mocks);
-
-        console.log(`AFTER:  ${mocks.length}`);
-
-        localStorage.setItem('mocks', dictstring);
-        
-        if (before < mocks.length) {
-            gotoMainPage(signupEmail.value);    
-        }
-    // }
-
-    // if (signupEmail.value == signupConfirmEmail.value && signupPassword.value == signupConfirmPassword.value) {
-    //     let usr = new User()
-    //     usr.email = signupEmail.value;
-    //     usr.password = signupPassword.value;
-
-    //     mocks.push(usr);
-
-    //     // signupTips.innerText = ' ';
-
-    //     console.log('OPAAAAAAA');
-
-    //     currentUser = mocks.length - 1;
-
-    //     localStorage.setItem('currentUser', currentUser);
-    //     localStorage.setItem('logged', true);
-    //     isLoggedIn = true;
-    //     window.location = `./main.html?email=${signupEmail.value}`;
-    // } 
-
-    // // if (signupEmail.value === '' || signupConfirmEmail.value === '' || signupPassword.value === '' || signupConfirmPassword.value === '') {
-    // //     signupTips.innerText = 'Warning, fill all the fields!';
-    // //     return
-    // // }
+    const before = mocks.length;
+    console.log(`BEFORE:  ${before}`);
+    let usr = mockEmpty;
     
-    // if (signupEmail.value !== signupConfirmEmail.value) {
-    //     signupEmail.classList.add('highlight');
-    //     signupConfirmEmail.classList.add('highlight');
-    //     signupTips.innerText = 'Hey, the emails must be equal!';
-    // } else {
-    //     signupEmail.classList.remove('highlight');
-    //     signupConfirmEmail.classList.remove('highlight');
-    // }
+    usr.email = enteredEmail;
+    usr.password = enteredPassword;
     
-    // if (signupPassword.value !== signupConfirmPassword.value) {
-    //     signupPassword.classList.add('highlight');
-    //     signupConfirmPassword.classList.add('highlight');
-    //     signupTips.innerText = 'Oops, both passwords must match!';
-    // } else {
-    //     signupPassword.classList.remove('highlight');
-    //     signupConfirmPassword.classList.remove('highlight');
-    // }    
+    mocks.push(usr);
+
+
+    var dictstring = JSON.stringify(mocks);
+
+    console.log(`AFTER:  ${mocks.length}`);
+
+    localStorage.setItem('mocks', dictstring);
+    
+    if (before < mocks.length) {
+        gotoMainPage(signupEmail.value);    
+    } 
 };
 
 function handleLoseFocus() {
     checkSignupState();
-
-
-    
     
     handleEmailInput("signup-email");
     handleEmailInput("signup-confirm-email");
     handlePasswordInput("signup-password");
     handlePasswordInput("signup-confirm-password");
-    // "signup-button"
-
-    // if (signupEmail.value != "" && signupConfirmEmail.value != "") {
-    //     if (signupEmail.value != signupConfirmEmail.value) {
-    //         signupEmail.classList.add('highlight');
-    //         signupConfirmEmail.classList.add('highlight');
-    
-    //         signupState["signup-email"] = false;
-    //         signupState["signup-confirm-email"] = false;
-    
-    //         signupTips.innerText = '\nEntered emails should match.';
-    
-    //         changeStateButton(false);
-    //         return false;
-    //     }
-    // }
-
-    // if (signupPassword.value != "" && signupConfirmPassword.value != "") {
-    //     if (signupPassword.value != signupConfirmPassword.value) {
-    //         signupPassword.classList.add('highlight');
-    //         signupConfirmPassword.classList.add('highlight');
-    
-    //         signupState["signup-password"] = false;
-    //         signupState[" signup-confirm-password"] = false;
-    
-    //         signupTips.innerText = '\nEntered emails should match.';
-    
-    //         changeStateButton(false);
-    //         return false;
-    //     }
-    // }
 }
-
-
-//=========== VALIDATION ===========
-
-//---- USER ----
-// function checkCredentialsAreRight(email, password) {
-//     let wrongEmail = true;
-//     let wrongPassword = true;
-
-//     for (let index = 0; index < mocks.length; index++) {
-//         const element = mocks[index];
-
-//         if (email == element.email) {
-//             wrongEmail = false
-
-//             if (password === element.password) {
-//                 return true;
-//             }
-//         } 
-//     }
-
-//     if (wrongEmail == true) {
-//         signupEmail.classList.add('highlight');
-//         signupTips.innerText = 'Email not registered yet!\nClick in Sign up.';
-//     }
-    
-//     if (wrongPassword == true) {
-//         signupEmail.classList.remove('highlight');
-//         signupPassword.classList.add('highlight');
-//         signupTips.innerText = 'Something went wrong!\nCheck the inserted password.';
-//     }
-//     return false;
-// }
-
 
 
 function checkEmailCharacatersIsValid(email) {
@@ -256,18 +142,6 @@ function checkPasswordLengthIsValid(password) {
 
 function checkSignupState() {
     if (signupState["signup-email"] == true && signupState["signup-confirm-email"] == true && signupState["signup-password"] == true && signupState["signup-confirm-password"] == true) {
-        // if (signupEmail.value != signupConfirmEmail.value) {
-        //     signupEmail.classList.add('highlight');
-        //     signupConfirmEmail.classList.add('highlight');
-
-        //     signupState["signup-email"] = false;
-        //     signupState["signup-confirm-email"] = false;
-
-        //     signupTips.innerText = '\nEntered emails should match.';
-
-        //     changeStateButton(false);
-        //     return false;
-        // }
         
         if (signupPassword.value != signupConfirmPassword.value) {
             signupPassword.classList.add('highlight');
@@ -346,12 +220,8 @@ function gotoSearchPage() {
 
 function gotoMainPage(email) {
     localStorage.setItem('logged', true);
-    // window.location = `./src/main.html?email=${email}`;
-    window.location = `./main.html?email=${email}&isLoggedIn=true`;
-    // window.location = `./src/main.html?email=${email}&isLoggedIn=true`;
 
-    // localStorage.setItem('logged', true);
-    // isLoggedIn = true;
+    window.location = `./main.html?email=${email}&isLoggedIn=true`;
 }
 
 

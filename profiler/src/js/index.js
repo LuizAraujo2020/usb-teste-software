@@ -28,7 +28,6 @@ function handleEmailInput() {
 
 function handlePasswordInput() {
     const valuePassword = loginPassword.value;
-    
 
     isPasswordValid = checkPasswordField(valuePassword);
 

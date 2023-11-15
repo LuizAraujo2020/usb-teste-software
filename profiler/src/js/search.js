@@ -12,11 +12,9 @@ function updateList() {
 
     if (filteredUsers.length <= 0) {
         content = `<p>No users found`;
-        // showMainTitle();
     } else {
         filteredUsers.forEach(element => {
             content += createSingleRow(element.email);
-            // hideMainTitle();
         });
     }
 
@@ -28,11 +26,3 @@ function createSingleRow(email) {
         <p>${email}</p>
     </a>`;
 }
-
-// function hideMainTitle() {
-//     searchMainTitle.classList.add("hide");
-// }
-
-// function showMainTitle() {
-//     searchMainTitle.classList.remove("hide");
-// }
