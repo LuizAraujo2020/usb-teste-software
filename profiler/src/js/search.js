@@ -2,7 +2,6 @@ const searchMainTitle = document.getElementById("search-main-title");
 const searchInput = document.getElementById("search-input");
 const searchList = document.getElementById("search-list");
 
-
 function updateList() {
     const value = searchInput.value;
     console.log(value);
