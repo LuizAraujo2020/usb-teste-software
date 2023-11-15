@@ -15,11 +15,11 @@
     </header>
     
     <main>
-        <input class="inputbox" type="email" id="signup-email" onkeyup="handleEmailInput('signup-email');" placeholder="email">
-        <input class="inputbox" type="email" id="signup-confirm-email" onkeyup="handleEmailInput('signup-confirm-email');" placeholder="confirm email">
+        <input class="inputbox" type="email" id="signup-email" onkeyup="handleEmailInput('signup-email');" onfocusout="handleLoseFocus();" placeholder="email">
+        <input class="inputbox" type="email" id="signup-confirm-email" onkeyup="handleEmailInput('signup-confirm-email');" onfocusout="handleLoseFocus();" placeholder="confirm email">
         
-        <input class="inputbox" type="password" id="signup-password" onkeyup="handlePasswordInput('signup-password');" placeholder="password">
-        <input class="inputbox" type="password" id="signup-confirm-password" onkeyup="handlePasswordInput('signup-confirm-password');" placeholder="confirm password">
+        <input class="inputbox" type="password" id="signup-password" onkeyup="handlePasswordInput('signup-password');" onfocusout="handleLoseFocus();" placeholder="password">
+        <input class="inputbox" type="password" id="signup-confirm-password" onkeyup="handlePasswordInput('signup-confirm-password');" onfocusout="handleLoseFocus();" placeholder="confirm password">
 
         <button class="disabled" type="submit" id="signup-button" onclick="signupButtonOnClick()" disabled>
             Sign up
