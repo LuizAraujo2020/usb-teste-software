@@ -54,15 +54,21 @@ function signupButtonOnClick() {
     // if (checkCredentialsAreRight(enteredEmail, enteredPassword) == true) {
         const before = mocks.length;
         console.log(`BEFORE:  ${before}`);
-        let usr = new User()
+        let usr = mockEmpty;
+        
         usr.email = enteredEmail;
         usr.password = enteredPassword;
         
         mocks.push(usr);
 
-        jsonSave(mocks);
+        // jsonSave(mocks);
+
+
+        var dictstring = JSON.stringify(mocks);
 
         console.log(`AFTER:  ${mocks.length}`);
+
+        localStorage.setItem('mocks', dictstring);
         
         if (before < mocks.length) {
             gotoMainPage(signupEmail.value);    

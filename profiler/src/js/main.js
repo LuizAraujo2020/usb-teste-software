@@ -8,9 +8,16 @@ let logged = urlParams.get('isLoggedIn');
 
 let currentUser;
 let isLoggedIn;
+let usersFrom;
 
 (function() {
-    console.log(`MOCKS: ${mocks.length}`);
+    let asdadsas = localStorage.getItem('mocks');
+        // localStorage.setItem('mocks', dictstring);
+
+        usersFrom = JSON.parse(asdadsas);
+
+    console.log(`asdadsas: ${asdadsas}`);
+    // console.log(`MOCKS: ${mocks.length}`);
 //     if (localStorage.getItem("logged") == true) {
 //         isLoggedIn = true
 
@@ -49,10 +56,10 @@ getUserByEmail(currentEmail);
 // }
 
 function getUserByEmail(email) {
-    currentUser = mocks.find((element) => element.email == email);
+    currentUser = usersFrom.find((element) => element.email == email);
 
     if (currentUser == undefined) {
-        gotoSearchPage()
+        // gotoSearchPage() <-------------
     }
 }
 
@@ -216,7 +223,7 @@ function updateScreen() {
     // }
 
     if (currentUser == undefined) {
-        gotoSearchPage();
+        // gotoSearchPage();<=======================
     }
     // let kkkk;
 
@@ -243,7 +250,7 @@ function updateScreen() {
 
     // console.table(usr)
 
-    if (currentUser.image == null) {
+    if (currentUser.image == null || currentUser.image == undefined || currentUser.image == "") {
         currentUser.image = "./resources/placeholder.png";
     }
     if (currentUser.name == null) {
@@ -357,8 +364,8 @@ mainName.addEventListener("click", () => {
         return
     }
 
-    mocks[currentUser].name = input;
-    mainName.innerText = mocks[currentUser].name;
+    usersFrom[currentUser].name = input;
+    mainName.innerText = usersFrom[currentUser].name;
 });
 
 mainJob.addEventListener("click", () => {
@@ -369,8 +376,8 @@ mainJob.addEventListener("click", () => {
         return
     }
 
-    mocks[currentUser].job = input;
-    mainJob.innerText = mocks[currentUser].job;
+    usersFrom[currentUser].job = input;
+    mainJob.innerText = usersFrom[currentUser].job;
 });
 
 mainImage.addEventListener("click", () => {
@@ -381,8 +388,8 @@ mainImage.addEventListener("click", () => {
         return
     }
 
-    mocks[currentUser].image = input;
-    mainImage.src = mocks[currentUser].image;
+    usersFrom[currentUser].image = input;
+    mainImage.src = usersFrom[currentUser].image;
 });
 
 mainYears.addEventListener("click", () => {
@@ -393,10 +400,10 @@ mainYears.addEventListener("click", () => {
         return
     }
 
-    mocks[currentUser].experience = input;
-    mainYears.innerText = mocks[currentUser].experience;
+    usersFrom[currentUser].experience = input;
+    mainYears.innerText = usersFrom[currentUser].experience;
 
-    if (mocks[currentUser].experience <= 1) {
+    if (usersFrom[currentUser].experience <= 1) {
         mainYearsText.innerHTML = 'Year Experience';
     } else {
         mainYearsText.innerHTML = 'Years Experience';
@@ -416,16 +423,16 @@ mainHighlight1.addEventListener("click", () => {
     if (isTextInvalid(input)) {
         return
     }
-    mocks[currentUser].highlight1.title = input;
+    usersFrom[currentUser].highlight1.title = input;
 
     const input2 = prompt('Insert a description of the highlight');
     if (isTextInvalid(input2)) {
         return
     }
-    mocks[currentUser].highlight1.text = input2;
+    mousersFromcks[currentUser].highlight1.text = input2;
 
-    mainHighlight1.innerHTML = `<h3>${mocks[currentUser].highlight1.title}</h3>
-    <p>${mocks[currentUser].highlight1.text}</p>`;
+    mainHighlight1.innerHTML = `<h3>${usersFrom[currentUser].highlight1.title}</h3>
+    <p>${usersFrom[currentUser].highlight1.text}</p>`;
 });
 
 mainHighlight2.addEventListener("click", () => {
@@ -435,16 +442,16 @@ mainHighlight2.addEventListener("click", () => {
     if (isTextInvalid(input)) {
         return
     }
-    mocks[currentUser].highlight2.title = input;
+    usersFrom[currentUser].highlight2.title = input;
 
     const input2 = prompt('Insert a description of the highlight');
     if (isTextInvalid(input2)) {
         return
     }
-    mocks[currentUser].highlight2.text = input2;
+    usersFrom[currentUser].highlight2.text = input2;
 
-    mainHighlight2.innerHTML = `<h3>${mocks[currentUser].highlight2.title}</h3>
-    <p>${mocks[currentUser].highlight2.text}</p>`;
+    mainHighlight2.innerHTML = `<h3>${usersFrom[currentUser].highlight2.title}</h3>
+    <p>${usersFrom[currentUser].highlight2.text}</p>`;
 });
 
 mainAbout.addEventListener("click", () => {
@@ -455,8 +462,8 @@ mainAbout.addEventListener("click", () => {
         return
     }
 
-    mocks[currentUser].about = input;
-    mainAbout.innerText = mocks[currentUser].about;
+    usersFrom[currentUser].about = input;
+    mainAbout.innerText = usersFrom[currentUser].about;
 });
 
 function addNewApp(id) {

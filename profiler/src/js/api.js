@@ -25,8 +25,6 @@ class User {
     contacts;
 }
 
-
-  
 var mock = new User()
 mock.name = "Luiz Carlos";
 mock.email = "luiz@email.com";
@@ -135,3 +133,78 @@ var mocks = [];
 
 mocks.push(mock);
 
+
+
+
+
+var mockEmpty = new User()
+mockEmpty.name = "Insert your Name";
+mockEmpty.email = "luiz@email.com";
+mockEmpty.password = "password123";
+mockEmpty.job = "Insert your Job Title";
+mockEmpty.image = "../src/resources/placeholder.png";
+mockEmpty.experience = "?";
+mockEmpty.highlight1 = {
+title: '?',
+text: 'Insert text'
+};
+
+mockEmpty.highlight2 = {
+    title: '?',
+    text: 'Insert text'
+};
+
+mockEmpty.about = `Insert a small Biography`;
+
+mockEmpty.apps = [
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the App",
+        "text": `Insert a small text describin th App`,
+
+    },
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the App",
+        "text": `Insert a small text describin th App`,
+
+    },
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the App",
+        "text": `Insert a small text describin th App`,
+
+    }
+]
+
+mockEmpty.certifications = [
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the course",
+    },
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the course",
+    },
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the course",
+    },
+    {
+        "image": "./resources/placeholder.png",
+        "title": "Name of the course",
+    },
+]
+
+mockEmpty.github = 'Git Profile';
+
+mockEmpty.contacts = [
+    {
+        "title": "email@email.com",
+        "text": "Professional email",
+    },
+    {
+        "title": "Something",
+        "text": "Describe this something",
+    }
+]
