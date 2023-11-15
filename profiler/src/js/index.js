@@ -1,14 +1,15 @@
 const loginTips = document.getElementById('login-tips');
 
-const loginButton = document.getElementById('login-button')
 const loginEmail = document.getElementById('login-email')
 const loginPassword = document.getElementById('login-password')
 
-
-//=========== INTERACTIONS ===========
+const loginButton = document.getElementById('login-button')
 
 let isEmailValid = false;
 let isPasswordValid = false;
+
+
+//=========== INTERACTIONS ===========
 
 function handleEmailInput() {
     const valueEmail = loginEmail.value;
@@ -74,7 +75,6 @@ function checkEmailLengthIsValid(email) {
 }
 
 function checkEmailField(email) {
-    console.log("ENTOU NO checkEmailField");
     if (checkEmailCharacatersIsValid(email) === false) { return false }
     if (checkEmailLengthIsValid(email) === false) { return false }
 
@@ -128,7 +128,7 @@ function checkCredentialsAreRight(email, password) {
 
 //=========== CHANGE STATES ===========
 
-//---- Email ----
+//---- BUTTON ----
 function changeStateButton(enabled) {
     if (enabled === true) {
         loginButton.classList.remove("disabled");
@@ -137,7 +137,7 @@ function changeStateButton(enabled) {
     }
 }
 
-//---- Email ----
+//---- EMAIL ----
 function changeStateEmail(isValid) {
     if (isValid === true) {
         loginEmail.classList.remove('highlight');
