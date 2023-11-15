@@ -12,13 +12,13 @@ let usersFrom;
 
 (function() {
     let asdadsas = localStorage.getItem('mocks');
-
+    console.log(asdadsas);
     usersFrom = JSON.parse(asdadsas);
 })();
 
 (function() {
 
-    if (logged == "true") {
+    if (logged == "true" || logged == true) {
         isLoggedIn = true
 
     } else {

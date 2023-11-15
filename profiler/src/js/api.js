@@ -131,8 +131,8 @@ mocks.push(mock);
 
 var mockEmpty = new User()
 mockEmpty.name = "Insert your Name";
-mockEmpty.email = "luiz@email.com";
-mockEmpty.password = "password123";
+mockEmpty.email = "email@email.com";
+mockEmpty.password = "as1ig2175tfagvs";
 mockEmpty.job = "Insert your Job Title";
 mockEmpty.image = "../src/resources/placeholder.png";
 mockEmpty.experience = "?";

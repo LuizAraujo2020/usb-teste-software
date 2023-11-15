@@ -8,6 +8,23 @@ const loginButton = document.getElementById('login-button')
 let isEmailValid = false;
 let isPasswordValid = false;
 
+let usersFromStorage = null;
+
+
+(function() {
+    let raw = localStorage.getItem('mocks');
+
+    if (raw == undefined || raw == null || raw.length <= 0 || usersFromStorage == undefined || usersFromStorage == null) {
+        usersFromStorage = mocks;
+        const stringfied = JSON.stringify(usersFromStorage);
+
+        localStorage.setItem('mocks', stringfied);
+    } else {
+        usersFromStorage = JSON.parse(raw);
+    }
+    console.log(usersFromStorage);
+})();
+
 
 //=========== INTERACTIONS ===========
 
@@ -100,8 +117,8 @@ function checkCredentialsAreRight(email, password) {
     let wrongEmail = true;
     let wrongPassword = true;
 
-    for (let index = 0; index < mocks.length; index++) {
-        const element = mocks[index];
+    for (let index = 0; index < usersFromStorage.length; index++) {
+        const element = usersFromStorage[index];
 
         if (email == element.email) {
             wrongEmail = false
@@ -186,6 +203,5 @@ function gotoSearchPage() {
 }
 
 function gotoMainPage(email) {
-    localStorage.setItem("logged", true);
     window.location = `./src/main.html?email=${email}&isLoggedIn=true`;
 }
