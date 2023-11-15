@@ -322,7 +322,6 @@ function changeStateInput(id, isValid) {
 
 //=========== NAVIGATION ===========
 
-//---- EMAIL ----
 function gotoLoginPage() {
     window.location = `../index.html`;
 }
@@ -340,7 +339,9 @@ function gotoMainPage(email) {
     // isLoggedIn = true;
 }
 
+
 //=========== MESSAGES ===========
+
 function showErrorMessage(msg) {
     signupTips.innerText = msg;
 }

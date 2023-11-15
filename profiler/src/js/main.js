@@ -1,152 +1,4 @@
-/// Pegar params da URL -> ?email=email@email.com
-const queryString = window.location.search;
-/// Parsear os params
-const urlParams = new URLSearchParams(queryString);
-const currentEmail = urlParams.get('email');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let currentUser;
-let isLoggedIn;
-
-(function () {
-    if (localStorage.getItem("currentUser") === null) {
-        localStorage.setItem('currentUser', -1);
-        currentUser = -1;
-    } else {
-        currentUser = localStorage.getItem("currentUser");
-    }
-
-    // if (localStorage.getItem("logged") === null) {
-    //     localStorage.setItem('logged', false);
-    //     isLoggedIn = false;
-    //     getIndexByEmail();
-    // } else {
-    //     isLoggedIn = localStorage.getItem("logged");
-    // }
-    if (localStorage.getItem("logged") == true) {
-        isLoggedIn = true
-    } else {
-        localStorage.setItem('logged', false);
-        isLoggedIn = false;
-        getIndexByEmail();
-    }
-})();
-
-
-// (function () {
-//     if (isLoggedIn == false) {
-//         currentEmail
-//     }
-// })();
-
-function loadJSON() {
-    const users = fetchJSON('./src/db/main.json');
-
-    console.log(users);
-}
-
-
-//=========== LOGOUT ===========
-
-const loginInfo = document.getElementById('main-loginInfo');
-
-function gotLoginPage() {
-    window.location = `../index.html`;
-}
-
-function gotSignupPage() {
-    window.location = `./signup.html`;
-}
-
-function gotSearchPage() {
-    window.location = `./search.html`;
-}
-
-function logout() {
-    localStorage.setItem('currentUser', -1);
-    localStorage.setItem('logged', false);
-
-    currentUser = -1;
-    isLoggedIn = false;
-
-    createAuthButtons();
-
-    console.log(`isLoggedIn: ${isLoggedIn}`);
-    console.log(`currentUser: ${currentUser}`);
-}
-
-createAuthButtons();
-
-function createAuthButtons() {
-
-    if (isLoggedIn === false || isLoggedIn === null) { 
-        loginInfo.innerHTML = `
-        <button onclick="gotSearchPage()" type="submit"><h4>Search</h4></button>
-        <button onclick="gotLoginPage()" type="submit"><h4>Login</h4></button>
-        <button onclick="gotSignupPage()" type="submit"><h4>Sign up</h4></button>
-        `;
-     } else {
-        // let name;
-        // if (mocks[currentUser].name === undefined) {
-        //     name = 'Person';
-        // } else {
-        //     name = mocks[currentUser].name;
-        // }
-
-        loginInfo.innerHTML = `
-        <button onclick="logout()" type="submit"><h4>Logout</h4></button>
-        `;
-     }
-}
-
-function getIndexByEmail() {
-    for (let index = 0; index < mocks.length; index++) {
-        console.log("asdasdasdasdasdadasdasd");
-
-        if (currentEmail == mocks[index].email) {
-            currentUser = index;
-            localStorage.setItem('currentUser', index);
-            updateScreen();
-        } 
-    }
-}
-
-
-//=========== MAIN PAGE ===========
+const mainLoginInfo = document.getElementById('main-loginInfo');
 
 const mainName = document.getElementById('main-name');
 const mainJob = document.getElementById('main-job');
@@ -164,6 +16,100 @@ const mainApps = document.getElementById('main-apps');
 const mainCertifications = document.getElementById('certifications');
 const mainRepositories = document.getElementById('repositories');
 const mainContacts = document.getElementById('contacts');
+
+let currentEmail;
+let currentUser;
+let isLoggedIn;
+
+
+//=========== INIT ===========
+getEmailFromURL();
+getUserByEmail(currentEmail);
+checkIsLoggedIn();
+
+createAuthButtons();
+updateScreen();
+
+function getEmailFromURL() {
+    /// Pegar params da URL -> ?email=email@email.com
+    const queryString = window.location.search;
+    /// Parsear os params
+    const urlParams = new URLSearchParams(queryString);
+    
+    currentEmail = urlParams.get('email');
+}
+
+function checkIsLoggedIn() {
+    if (localStorage.getItem("logged") == true) {
+        isLoggedIn = true
+
+    } else {
+        localStorage.setItem('logged', false);
+        isLoggedIn = false;
+    }
+}
+
+function getUserByEmail(email) {
+    currentUser = mocks.find((element) => element.email == email);
+
+    if (currentUser == undefined) {
+        gotoSearchPage()
+    }
+}
+
+// function loadJSON() {
+//     const users = fetchJSON('./src/db/main.json');
+
+//     console.log(users);
+// }
+
+
+
+//=========== LOGOUT ===========
+
+const loginInfo = document.getElementById('main-loginInfo');
+
+function logout() {
+    localStorage.setItem('logged', false);
+    isLoggedIn = false;
+
+    createAuthButtons();
+}
+
+function createAuthButtons() {
+
+    if (isLoggedIn == false || isLoggedIn == null || isLoggedIn == undefined) { 
+        mainLoginInfo.innerHTML = `
+        <button onclick="gotoSearchPage()" type="submit"><h4>Search</h4></button>
+        <button onclick="gotoLoginPage()" type="submit"><h4>Login</h4></button>
+        <button onclick="gotoSignupPage()" type="submit"><h4>Sign up</h4></button>
+        `;
+     } else {
+        // let name;
+        // if (mocks[currentUser].name === undefined) {
+        //     name = 'Person';
+        // } else {
+        //     name = mocks[currentUser].name;
+        // }
+
+        mainLoginInfo.innerHTML = `
+        <button onclick="logout()" type="submit"><h4>Logout</h4></button>
+        `;
+     }
+}
+
+// function getIndexByEmail() {
+//     for (let index = 0; index < mocks.length; index++) {
+//         console.log("asdasdasdasdasdadasdasd");
+
+//         if (currentEmail == mocks[index].email) {
+//             currentUser = index;
+//             localStorage.setItem('currentUser', index);
+//             updateScreen();
+//         } 
+//     }
+// }
+
 
 
 // (function () {
@@ -217,7 +163,7 @@ const mainContacts = document.getElementById('contacts');
 
 //     mainContacts.innerHTML = createMainContacts(usr.contacts);
 // })();
-updateScreen();
+
 function updateScreen() {
 
     // const cur = localStorage.getItem('currentUser');
@@ -236,59 +182,62 @@ function updateScreen() {
     //     return
     // }
 
-    let kkkk;
+    if (currentUser == undefined) {
+        gotoSearchPage();
+    }
+    // let kkkk;
 
-    console.log(`email: ${currentEmail}`);
+    // console.log(`email: ${currentEmail}`);
 
-    for (let index = 0; index < mocks.length; index++) {
+    // for (let index = 0; index < mocks.length; index++) {
 
-        if (currentEmail == mocks[index].email) {
-            kkkk = index;
-        } 
+    //     if (currentEmail == mocks[index].email) {
+    //         kkkk = index;
+    //     } 
+    // }
+
+    // if (kkkk < 0) {
+    //     const mainBody = document.getElementById("main-body");
+    //     mainBody.innerHTML = `
+    //         <h1>No user found, change the email in the URL or try to login</h1>
+    //     `;
+
+    //     return
+    // }
+
+    // console.log(`KKKKKKK: ${kkkk}`);
+    // let usr = mocks[kkkk];
+
+    // console.table(usr)
+
+    if (currentUser.image == null) {
+        currentUser.image = "./resources/placeholder.png";
+    }
+    if (currentUser.name == null) {
+        currentUser.name = "Insert name";
     }
 
-    if (kkkk < 0) {
-        const mainBody = document.getElementById("main-body");
-        mainBody.innerHTML = `
-            <h1>No user found, change the email in the URL or try to login</h1>
-        `;
+    mainImage.src = currentUser.image;
+    mainName.innerHTML = currentUser.name;
+    mainJob.innerHTML = currentUser.job;
+    mainYears.innerHTML = `${currentUser.experience}+`;
 
-        return
-    }
-
-    console.log(`KKKKKKK: ${kkkk}`);
-    let usr = mocks[kkkk];
-
-    console.table(usr)
-
-    if (usr.image == null) {
-        usr.image = "./resources/placeholder.png";
-    }
-    if (usr.name == null) {
-        usr.name = "Insert name";
-    }
-
-    mainImage.src = usr.image;
-    mainName.innerHTML = usr.name;
-    mainJob.innerHTML = usr.job;
-    mainYears.innerHTML = `${usr.experience}+`;
-
-    if (usr.experience <= 1) {
+    if (currentUser.experience <= 1) {
         mainYearsText.innerHTML = 'Year Experience';
     } else {
         mainYearsText.innerHTML = 'Years Experience';
     }
 
-    mainHighlight1.innerHTML = createHighlight(usr.highlight1.title, usr.highlight1.text);
-    mainHighlight2.innerHTML = createHighlight(usr.highlight2.title, usr.highlight2.text);
+    mainHighlight1.innerHTML = createHighlight(currentUser.highlight1.title, currentUser.highlight1.text);
+    mainHighlight2.innerHTML = createHighlight(currentUser.highlight2.title, currentUser.highlight2.text);
 
-    mainAbout.innerHTML = usr.about;
+    mainAbout.innerHTML = currentUser.about;
 
-    mainApps.innerHTML = createMainApps(usr.apps);
+    mainApps.innerHTML = createMainApps(currentUser.apps);
     
-    mainCertifications.innerHTML = createMainCertifications(usr.certifications);
+    mainCertifications.innerHTML = createMainCertifications(currentUser.certifications);
 
-    mainContacts.innerHTML = createMainContacts(usr.contacts);
+    mainContacts.innerHTML = createMainContacts(currentUser.contacts);
 }
 
 function createHighlight(title, text) {
@@ -562,3 +511,21 @@ function changeTextFromID(id, text) {
 // mainContacts.addEventListener("click", () => {
 
 // });
+
+
+
+
+
+//=========== NAVIGATION ===========
+
+function gotoLoginPage() {
+    window.location = `../index.html`;
+}
+
+function gotoSignUpPage() {
+    window.location = `./signup.html`;
+}
+
+function gotoSearchPage() {
+    window.location = `./search.html`;
+}

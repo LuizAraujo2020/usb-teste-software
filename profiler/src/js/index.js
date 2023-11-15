@@ -49,7 +49,7 @@ function loginButtonOnClick() {
     const enteredPassword = loginPassword.value;
 
     if (checkCredentialsAreRight(enteredEmail, enteredPassword) == true) {
-        gotoMainPage(email);    
+        gotoMainPage(enteredEmail);    
     }
 };
 
