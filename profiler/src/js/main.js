@@ -7,12 +7,13 @@ const currentEmail = urlParams.get('email');
 let logged = urlParams.get('isLoggedIn');
 
 let currentUser;
+let currentIndex;
 let isLoggedIn;
 let usersFrom;
 
 (function() {
     let asdadsas = localStorage.getItem('mocks');
-    console.log(asdadsas);
+    // console.log(asdadsas);
     usersFrom = JSON.parse(asdadsas);
 })();
 
@@ -24,28 +25,71 @@ let usersFrom;
     } else {
         isLoggedIn = false;
     }
-
-    console.log(`LOGGED: ${isLoggedIn}`);
 })();
+
 
 //=========== INIT ===========
 
 getUserByEmail(currentEmail);
 
 function getUserByEmail(email) {
-    currentUser = usersFrom.find((element) => element.email == email);
+    // currentUser = usersFrom.find((element) => element.email == email);
 
-    if (currentUser == undefined) {
+    for (let index = 0; index < usersFrom.length; index++) {
+        const element = usersFrom[index];
+
+        if (element.email == email) {
+            currentUser = element;
+            currentIndex = index;
+        }
+    }
+
+    if (currentUser == undefined || currentIndex == undefined) {
         gotoSearchPage()
     }
 }
 
-function loadJSON() {
-    const users = fetchJSON('./src/db/main.json');
+// // import jsonData from '../main.json';
+// import jsonData from '../main.json';// assert { type: 'json' };
 
-    console.log(users);
-}
+// loadJSON();
+// function loadJSON() {
+//     // const users = fetchJSON('./src/main.json');
 
+//     console.log(jsonData);
+// }
+const jsonModule = await import('../main.json', {
+    assert: { type: 'json' }
+});
+  console.log(jsonModule.default.users); 
+
+const stringsss = JSON.stringify(mocks);
+
+// function download(content, fileName, contentType) {
+//     var a = document.createElement("a");
+//     var file = new Blob([content], {type: contentType});
+//     a.href = URL.createObjectURL(file);
+//     // a.download = fileName;
+//     // var blobUrl = URL.createObjectURL(myBlob);
+//     console.log(a);
+//     a.click();
+// }
+// download(stringsss, './src/json2.json', 'application/json');
+
+function export2txt() {
+    const originalData = mocks;
+  
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(originalData, null, 2)], {
+      type: "text/plain"
+    }));
+    a.setAttribute("download", "data.txt");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  export2txt();
 
 const mainLoginInfo = document.getElementById('main-loginInfo');
 
@@ -82,6 +126,7 @@ function logout() {
 }
 
 function createAuthButtons() {
+    storageLoadUsers();
 
     if (isLoggedIn == false || isLoggedIn == null || isLoggedIn == undefined) { 
         mainLoginInfo.innerHTML = `
@@ -98,6 +143,8 @@ function createAuthButtons() {
 
 
 function updateScreen() {
+    storageLoadUsers();
+
     if (currentUser == undefined) {
         gotoSearchPage()
     }
@@ -187,24 +234,26 @@ function getGitHubUser(user) {
 
 function isTextInvalid(text) {
     const input = text.trim()
-
+    
     if (input == null || input === null || input == '' || input == ' ' || input.length <= 1) {
         return true
     }
-
+    
     return false
 }
 
 mainName.addEventListener("click", () => {
     if (isLoggedIn != true) { return }
-
+    
     const input = prompt('Insert your name');
     if (isTextInvalid(input)) {
         return
     }
+    
+    usersFrom[currentIndex].name = input;
+    mainName.innerText = usersFrom[currentIndex].name;
 
-    usersFrom[currentUser].name = input;
-    mainName.innerText = usersFrom[currentUser].name;
+    storageSet(usersFrom, 'mocks');
 });
 
 mainJob.addEventListener("click", () => {
@@ -229,6 +278,7 @@ mainImage.addEventListener("click", () => {
 
     usersFrom[currentUser].image = input;
     mainImage.src = usersFrom[currentUser].image;
+
 });
 
 mainYears.addEventListener("click", () => {
@@ -373,6 +423,7 @@ function changeTextFromID(id, text) {
     element.innerText = input;
 };
 
+
 //=========== NAVIGATION ===========
 
 function gotoLoginPage() {
@@ -386,3 +437,22 @@ function gotoSignUpPage() {
 function gotoSearchPage() {
     window.location = `./search.html`;
 }
+
+//=========== PERSISTENCE ===========
+
+function storageSet(values = usersFrom, key = 'mocks') {
+    const stringfied = JSON.stringify(values);
+
+    localStorage.setItem(key, stringfied);
+}
+
+function storageGet(key = 'mocks') {
+    const stringfied = localStorage.getItem(key);
+
+    return JSON.parse(stringfied);
+}
+
+function storageLoadUsers() {
+    usersFrom = storageGet('mocks');
+}
+
