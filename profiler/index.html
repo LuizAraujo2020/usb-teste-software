@@ -15,8 +15,8 @@
     </header>
 
     <main id="teste-main">
-        <input class="inputbox" type="email" id="login-email" placeholder="email">
-        <input class="inputbox" type="password" id="login-password" placeholder="password">
+        <input class="inputbox" onkeyup="handleEmailInput()" type="email" id="login-email" placeholder="email">
+        <input class="inputbox" onkeyup="handlePasswordInput()" type="password" id="login-password" placeholder="password">
 
         <button id="login-button" class="disabled" type="submit" onclick="loginButtonOnClick()">
             Login
@@ -26,6 +26,6 @@
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./src/js/api.js"></script>
-    <script src="./src/js/auth.js"></script>
+    <script src="./src/js/index.js"></script>
 </body>
 </html>

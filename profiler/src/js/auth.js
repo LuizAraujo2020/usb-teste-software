@@ -46,13 +46,7 @@ let signupState = {
     "signup-confirm-password": false,
     "signup-button": false
 }
-
-const loginTips = document.getElementById('login-tips');
 const signupTips = document.getElementById('"signup-tips');
-
-const loginButton = document.getElementById('login-button')
-const loginEmail = document.getElementById('login-email')
-const loginPassword = document.getElementById('login-password')
 
 const signupButton = document.getElementById('signup-button')
 const signupEmail = document.getElementById('signup-email')
@@ -65,49 +59,6 @@ function loadJSON() {
 
     console.log(users);
 }
-
-
-//=========== AUTH ===========
-
-function loginButtonOnClick() {
-    const enteredEmail = loginEmail.value;
-    const enteredPassword = loginPassword.value;
-
-    for (let index = 0; index < mocks.length; index++) {
-        const element = mocks[index];
-
-        
-        if (enteredEmail.includes("@" == false) || enteredEmail.includes("." == false)) {
-            loginEmail.classList.add('highlight');
-            return
-        }
-        
-        if (enteredPassword.length < 8) {
-            loginPassword.classList.add('highlight');
-            return
-        }
-
-
-        if (enteredEmail === element.email && enteredPassword === element.password) {
-            currentUser = index;
-            localStorage.setItem('currentUser', index);
-            localStorage.setItem('logged', true);
-            isLoggedIn = true;
-            console.log(`INDEX: ${index}`)
-            window.location = `./src/main.html?email=${enteredEmail}`;
-        } 
-        
-        if (enteredEmail !== element.email) {
-            loginEmail.classList.add('highlight');
-        } 
-        
-        if (enteredPassword !== element.password) {
-            loginPassword.classList.add('highlight');
-        }
-
-        loginTips.innerText = 'Something went wrong! \nTry again or go to Sign Up page to register.';
-    }
-};
 
 
 //=========== LOGOUT ===========
@@ -240,25 +191,6 @@ function checkEmailField(id) {
         field.classList.add('highlight');
         return
     }
-
-    // if (signupState["signup-email"] === true && signupState["signup-confirm-email"] === true) {
-    //     const email = document.getElementById("signup-email");
-    //     const confirm = document.getElementById("signup-confirm-email");
-
-    //     if (email.value != confirm.value) {
-    //         email.classList.add('highlight');
-    //         confirm.classList.add('highlight');
-
-    //         signupState["signup-email"] = false;
-    //         signupState["signup-confirm-email"] = false;
-
-    //         signupTips.innerText = 'Hey! \n Emails should match.';
-    //     }  else {
-    //         email.classList.remove('highlight');
-    //         confirm.classList.remove('highlight');
-    //         signupTips.innerText = ' ';
-    //     }
-    // }
     
     field.classList.remove('highlight');
     signupState[id] = true;
