@@ -178,7 +178,7 @@ function dismissErrorMessage() {
 
 //=========== NAVIGATION ===========
 
-function gotoSignupPage() {
+function gotoSignUpPage() {
     window.location = `./signup.html`;
 }
 

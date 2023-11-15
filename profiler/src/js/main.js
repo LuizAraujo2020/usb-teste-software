@@ -9,8 +9,8 @@ let logged = urlParams.get('isLoggedIn');
 let currentUser;
 let isLoggedIn;
 
-// (function() {
-
+(function() {
+    console.log(`MOCKS: ${mocks.length}`);
 //     if (localStorage.getItem("logged") == true) {
 //         isLoggedIn = true
 
@@ -20,7 +20,7 @@ let isLoggedIn;
 //     }
 
 //     console.log(`LOGGED: ${isLoggedIn}`);
-// })();
+})();
 
 (function() {
 
@@ -68,11 +68,11 @@ function getUserByEmail(email) {
 //     console.log(`LOGGED: ${isLoggedIn}`);
 // }
 
-// function loadJSON() {
-//     const users = fetchJSON('./src/db/main.json');
+function loadJSON() {
+    const users = fetchJSON('./src/db/main.json');
 
-//     console.log(users);
-// }
+    console.log(users);
+}
 
 
 const mainLoginInfo = document.getElementById('main-loginInfo');
@@ -115,7 +115,7 @@ function createAuthButtons() {
         mainLoginInfo.innerHTML = `
         <button onclick="gotoSearchPage()" type="submit"><h4>Search</h4></button>
         <button onclick="gotoLoginPage()" type="submit"><h4>Login</h4></button>
-        <button onclick="gotoSignupPage()" type="submit"><h4>Sign up</h4></button>
+        <button onclick="gotoSignUpPage()" type="submit"><h4>Sign up</h4></button>
         `;
      } else {
         // let name;

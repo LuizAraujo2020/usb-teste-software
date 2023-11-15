@@ -52,13 +52,21 @@ function signupButtonOnClick() {
     }
 
     // if (checkCredentialsAreRight(enteredEmail, enteredPassword) == true) {
+        const before = mocks.length;
+        console.log(`BEFORE:  ${before}`);
         let usr = new User()
-        usr.email = signupEmail.value;
-        usr.password = signupPassword.value;
-
+        usr.email = enteredEmail;
+        usr.password = enteredPassword;
+        
         mocks.push(usr);
 
-        gotoMainPage(signupEmail.value);    
+        jsonSave(mocks);
+
+        console.log(`AFTER:  ${mocks.length}`);
+        
+        if (before < mocks.length) {
+            gotoMainPage(signupEmail.value);    
+        }
     // }
 
     // if (signupEmail.value == signupConfirmEmail.value && signupPassword.value == signupConfirmPassword.value) {
@@ -104,7 +112,7 @@ function signupButtonOnClick() {
     // }    
 };
 
-function handleLoseFocus(id) {
+function handleLoseFocus() {
     checkSignupState();
 
 
@@ -180,7 +188,7 @@ function handleLoseFocus(id) {
 //     return false;
 // }
 
-//---- Email ----
+
 
 function checkEmailCharacatersIsValid(email) {
     if (email.includes('@') && email.includes('.')) {
