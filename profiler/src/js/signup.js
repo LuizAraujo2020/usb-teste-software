@@ -219,8 +219,7 @@ function gotoSearchPage() {
 }
 
 function gotoMainPage(email) {
-    localStorage.setItem('logged', true);
-
+    // localStorage.setItem('logged', true);
     window.location = `./main.html?email=${email}&isLoggedIn=true`;
 }
 

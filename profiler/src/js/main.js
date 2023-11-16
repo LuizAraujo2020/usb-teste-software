@@ -6,14 +6,12 @@ const urlParams = new URLSearchParams(queryString);
 const currentEmail = urlParams.get('email');
 let logged = urlParams.get('isLoggedIn');
 
-let currentUser;
 let currentIndex;
 let isLoggedIn;
 let usersFrom;
 
 (function() {
     let asdadsas = localStorage.getItem('mocks');
-    // console.log(asdadsas);
     usersFrom = JSON.parse(asdadsas);
 })();
 
@@ -33,63 +31,21 @@ let usersFrom;
 getUserByEmail(currentEmail);
 
 function getUserByEmail(email) {
-    // currentUser = usersFrom.find((element) => element.email == email);
+    // usersFrom[currentIndex] = usersFrom.find((element) => element.email == email);
 
     for (let index = 0; index < usersFrom.length; index++) {
         const element = usersFrom[index];
 
         if (element.email == email) {
-            currentUser = element;
             currentIndex = index;
         }
     }
 
-    if (currentUser == undefined || currentIndex == undefined) {
+    if (currentIndex == null || currentIndex == undefined) {
         gotoSearchPage()
     }
 }
 
-// // import jsonData from '../main.json';
-// import jsonData from '../main.json';// assert { type: 'json' };
-
-// loadJSON();
-// function loadJSON() {
-//     // const users = fetchJSON('./src/main.json');
-
-//     console.log(jsonData);
-// }
-const jsonModule = await import('../main.json', {
-    assert: { type: 'json' }
-});
-  console.log(jsonModule.default.users); 
-
-const stringsss = JSON.stringify(mocks);
-
-// function download(content, fileName, contentType) {
-//     var a = document.createElement("a");
-//     var file = new Blob([content], {type: contentType});
-//     a.href = URL.createObjectURL(file);
-//     // a.download = fileName;
-//     // var blobUrl = URL.createObjectURL(myBlob);
-//     console.log(a);
-//     a.click();
-// }
-// download(stringsss, './src/json2.json', 'application/json');
-
-function export2txt() {
-    const originalData = mocks;
-  
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([JSON.stringify(originalData, null, 2)], {
-      type: "text/plain"
-    }));
-    a.setAttribute("download", "data.txt");
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
-  export2txt();
 
 const mainLoginInfo = document.getElementById('main-loginInfo');
 
@@ -99,11 +55,7 @@ const mainImage = document.getElementById('main-image');
 const mainYears = document.getElementById('main-experience-year');
 const mainYearsText = document.getElementById('main-experience-text');
 const mainHighlight1 = document.getElementById('main-highlight1');
-const mainHighlight1h3 = document.getElementById("main-highlight1-h3");
-const mainHighlight1p = document.getElementById('main-highlight1-p');
 const mainHighlight2 = document.getElementById('main-highlight2');
-const mainHighlight2h3 = document.getElementById('main-highlight2-h3');
-const mainHighlight2p = document.getElementById('main-highlight2-p');
 const mainAbout = document.getElementById('main-about');
 const mainApps = document.getElementById('main-apps');
 const mainCertifications = document.getElementById('certifications');
@@ -119,7 +71,7 @@ updateScreen();
 const loginInfo = document.getElementById('main-loginInfo');
 
 function logout() {
-    localStorage.setItem('logged', false);
+    // localStorage.setItem('logged', false);
     isLoggedIn = false;
 
     createAuthButtons();
@@ -145,38 +97,38 @@ function createAuthButtons() {
 function updateScreen() {
     storageLoadUsers();
 
-    if (currentUser == undefined) {
+    if (usersFrom[currentIndex] == undefined || usersFrom[currentIndex] == null) {
         gotoSearchPage()
     }
 
-    if (currentUser.image == null || currentUser.image == undefined || currentUser.image == "") {
-        currentUser.image = "./resources/placeholder.png";
+    if (usersFrom[currentIndex].image == null || usersFrom[currentIndex].image == undefined || usersFrom[currentIndex].image == "") {
+        usersFrom[currentIndex].image = "./resources/placeholder.png";
     }
-    if (currentUser.name == null) {
-        currentUser.name = "Insert name";
+    if (usersFrom[currentIndex].name == null) {
+        usersFrom[currentIndex].name = "Insert name";
     }
 
-    mainImage.src = currentUser.image;
-    mainName.innerHTML = currentUser.name;
-    mainJob.innerHTML = currentUser.job;
-    mainYears.innerHTML = `${currentUser.experience}+`;
+    mainImage.src = usersFrom[currentIndex].image;
+    mainName.innerHTML = usersFrom[currentIndex].name;
+    mainJob.innerHTML = usersFrom[currentIndex].job;
+    mainYears.innerHTML = `${usersFrom[currentIndex].experience}+`;
 
-    if (currentUser.experience <= 1) {
+    if (usersFrom[currentIndex].experience <= 1) {
         mainYearsText.innerHTML = 'Year Experience';
     } else {
         mainYearsText.innerHTML = 'Years Experience';
     }
 
-    mainHighlight1.innerHTML = createHighlight(currentUser.highlight1.title, currentUser.highlight1.text);
-    mainHighlight2.innerHTML = createHighlight(currentUser.highlight2.title, currentUser.highlight2.text);
+    mainHighlight1.innerHTML = createHighlight(usersFrom[currentIndex].highlight1.title, usersFrom[currentIndex].highlight1.text);
+    mainHighlight2.innerHTML = createHighlight(usersFrom[currentIndex].highlight2.title, usersFrom[currentIndex].highlight2.text);
 
-    mainAbout.innerHTML = currentUser.about;
+    mainAbout.innerHTML = usersFrom[currentIndex].about;
 
-    mainApps.innerHTML = createMainApps(currentUser.apps);
+    mainApps.innerHTML = createMainApps(usersFrom[currentIndex].apps);
     
-    mainCertifications.innerHTML = createMainCertifications(currentUser.certifications);
+    mainCertifications.innerHTML = createMainCertifications(usersFrom[currentIndex].certifications);
 
-    mainContacts.innerHTML = createMainContacts(currentUser.contacts);
+    mainContacts.innerHTML = createMainContacts(usersFrom[currentIndex].contacts);
 }
 
 function createHighlight(title, text) {
@@ -203,7 +155,7 @@ function createMainCertifications(certifications) {
 
     certifications.forEach(element => {
         result += `<div class="card certification">
-        <img onclick="changeTextFromID('certification-img-${element.title}', 'Insert an URL to the Certification image.')" id="certification-img-${element.title}" src="${element.image}" alt="${element.title}">
+        <img onclick="changeURLFromID('certification-img-${element.title}', 'Insert an URL to the Certification image.')" id="certification-img-${element.title}" src="${element.image}" alt="${element.title}">
         <p onclick="changeTextFromID('certification-p-${element.title}', 'Insert name of the course')" id='certification-p-${element.title}'>${element.title}</p>
     </div>`;
     });
@@ -225,9 +177,9 @@ function createMainContacts(conts) {
     return result;
 }
 
-function getGitHubUser(user) {
-    getUser(user);
-}
+// function getGitHubUser(user) {
+//     getUser(user);
+// }
 
 
 /*========== EDIT FIELDS ==========*/
@@ -264,8 +216,10 @@ mainJob.addEventListener("click", () => {
         return
     }
 
-    usersFrom[currentUser].job = input;
-    mainJob.innerText = usersFrom[currentUser].job;
+    usersFrom[currentIndex].job = input;
+    mainJob.innerText = usersFrom[currentIndex].job;
+
+    storageSet(usersFrom, 'mocks');
 });
 
 mainImage.addEventListener("click", () => {
@@ -276,9 +230,10 @@ mainImage.addEventListener("click", () => {
         return
     }
 
-    usersFrom[currentUser].image = input;
-    mainImage.src = usersFrom[currentUser].image;
+    usersFrom[currentIndex].image = input;
+    mainImage.src = usersFrom[currentIndex].image;
 
+    storageSet(usersFrom, 'mocks');
 });
 
 mainYears.addEventListener("click", () => {
@@ -289,14 +244,16 @@ mainYears.addEventListener("click", () => {
         return
     }
 
-    usersFrom[currentUser].experience = input;
-    mainYears.innerText = usersFrom[currentUser].experience;
+    usersFrom[currentIndex].experience = input;
+    mainYears.innerText = usersFrom[currentIndex].experience;
 
-    if (usersFrom[currentUser].experience <= 1) {
+    if (usersFrom[currentIndex].experience <= 1) {
         mainYearsText.innerHTML = 'Year Experience';
     } else {
         mainYearsText.innerHTML = 'Years Experience';
     }
+
+    storageSet(usersFrom, 'mocks');
 });
 
 mainHighlight1.addEventListener("click", () => {
@@ -306,16 +263,18 @@ mainHighlight1.addEventListener("click", () => {
     if (isTextInvalid(input)) {
         return
     }
-    usersFrom[currentUser].highlight1.title = input;
+    usersFrom[currentIndex].highlight1.title = input;
 
     const input2 = prompt('Insert a description of the highlight');
     if (isTextInvalid(input2)) {
         return
     }
-    mousersFromcks[currentUser].highlight1.text = input2;
+    usersFrom[currentIndex].highlight1.text = input2;
 
-    mainHighlight1.innerHTML = `<h3>${usersFrom[currentUser].highlight1.title}</h3>
-    <p>${usersFrom[currentUser].highlight1.text}</p>`;
+    mainHighlight1.innerHTML = `<h3>${usersFrom[currentIndex].highlight1.title}</h3>
+    <p>${usersFrom[currentIndex].highlight1.text}</p>`;
+
+    storageSet(usersFrom, 'mocks');
 });
 
 mainHighlight2.addEventListener("click", () => {
@@ -325,16 +284,18 @@ mainHighlight2.addEventListener("click", () => {
     if (isTextInvalid(input)) {
         return
     }
-    usersFrom[currentUser].highlight2.title = input;
+    usersFrom[currentIndex].highlight2.title = input;
 
     const input2 = prompt('Insert a description of the highlight');
     if (isTextInvalid(input2)) {
         return
     }
-    usersFrom[currentUser].highlight2.text = input2;
+    usersFrom[currentIndex].highlight2.text = input2;
 
-    mainHighlight2.innerHTML = `<h3>${usersFrom[currentUser].highlight2.title}</h3>
-    <p>${usersFrom[currentUser].highlight2.text}</p>`;
+    mainHighlight2.innerHTML = `<h3>${usersFrom[currentIndex].highlight2.title}</h3>
+    <p>${usersFrom[currentIndex].highlight2.text}</p>`;
+
+    storageSet(usersFrom, 'mocks');
 });
 
 mainAbout.addEventListener("click", () => {
@@ -345,8 +306,10 @@ mainAbout.addEventListener("click", () => {
         return
     }
 
-    usersFrom[currentUser].about = input;
-    mainAbout.innerText = usersFrom[currentUser].about;
+    usersFrom[currentIndex].about = input;
+    mainAbout.innerText = usersFrom[currentIndex].about;
+
+    storageSet(usersFrom, 'mocks');
 });
 
 function addNewApp(id) {
@@ -377,9 +340,11 @@ function addNewApp(id) {
 
     obj.text = input3;
 
-    usr.apps.push(obj);
+    usersFrom[currentIndex].apps.push(obj);
 
-    mainApps.innerHTML = createMainApps(usr.apps);
+    mainApps.innerHTML = createMainApps(usersFrom[currentIndex].apps);
+
+    storageSet(usersFrom, 'mocks');
 };
 
 const carAppExample = document.getElementById('card-app-example');
@@ -408,7 +373,23 @@ carAppExample.addEventListener("click", () => {
     }
 
     appText.innerText = input3;
+
+    storageSet(usersFrom, 'mocks');
 });
+
+function changeURLFromID(id, url) {
+    if (isLoggedIn != true) { return }
+
+    const element = document.getElementById(id);
+
+    const input = prompt(text);
+    if (isTextInvalid(input)) {
+        return
+    }
+
+    element.src = input;
+};
+
 
 function changeTextFromID(id, text) {
     if (isLoggedIn != true) { return }
@@ -427,32 +408,25 @@ function changeTextFromID(id, text) {
 //=========== NAVIGATION ===========
 
 function gotoLoginPage() {
-    window.location = `../index.html`;
+    window.location = '../index.html';
 }
 
 function gotoSignUpPage() {
-    window.location = `./signup.html`;
+    window.location = './signup.html';
 }
 
 function gotoSearchPage() {
-    window.location = `./search.html`;
+    window.location = './search.html';
 }
 
 //=========== PERSISTENCE ===========
 
-function storageSet(values = usersFrom, key = 'mocks') {
-    const stringfied = JSON.stringify(values);
-
-    localStorage.setItem(key, stringfied);
-}
-
-function storageGet(key = 'mocks') {
-    const stringfied = localStorage.getItem(key);
-
-    return JSON.parse(stringfied);
+function storageSet() {
+    const stringfied = JSON.stringify(usersFrom);
+    localStorage.setItem('mocks', stringfied);
 }
 
 function storageLoadUsers() {
-    usersFrom = storageGet('mocks');
+    const stringfied = localStorage.getItem('mocks');
+    usersFrom = JSON.parse(stringfied);
 }
-
