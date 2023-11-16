@@ -1,41 +1,91 @@
 *** Settings ***
-Documentation   Simple example using SeleniumLibrary.
+Documentation   Testes da Tela de Login
 Library         SeleniumLibrary
+Resource        resources.robot
 
 *** Variables ***
-${LOGIN_URL}        http://127.0.0.1:5500/profiler/index.html
-${BROWSER}          Chrome
-${INPUT_EMAIL}      luiz@email.com
-${INPUT_PASSWORD}   password123
-
 
 *** Test Cases ***
-Dado que fulo precisa fazer o cadastro
-    Open Browser To Login Page
-    Input Email     ${INPUT_EMAIL}
-    Input Password  ${INPUT_PASSWORD}
-    Click Login Button
+Cenário: Login com sucesso
+    Abre a página de Login
+    Está na tela de Login 
+    Digita um email valido      ${EMAIL_CERTO}
+    Digita uma senha valida     ${PASSWORD_CERTO}
+    Clica no botao Login
+    Está logado na Pagina Principal
 
+Cenário: Login sem email 
+    # Abre a página de Login
+    Vai até tela de Login 
+    Está na tela de Login 
+    Digita uma senha valida     ${PASSWORD_CERTO}
+    Clica no botao Login
+    Campo email está destacado
+    Está na tela de Login 
 
+Cenário: Login sem senha
+    # Abre a página de Login
+    Vai até tela de Login 
+    Está na tela de Login 
+    Digita um email valido      ${EMAIL_CERTO}
+    Clica no botao Login
+    Campo senha está destacado
+    Está na tela de Login 
+    
+Cenário: Login com email invalido
+    # Abre a página de Login
+    Vai até tela de Login 
+    Está na tela de Login 
+    Digita um email invalido    ${EMAIL_INVALIDO}
+    Digita uma senha valida     ${PASSWORD_CERTO}
+    Clica no botao Login
+    Campo email está destacado
+    Está na tela de Login  
+
+Cenário: Login com senha inválida
+    # Abre a página de Login
+    Vai até tela de Login
+    Está na tela de Login 
+    Digita um email valido      ${EMAIL_CERTO}
+    Digita uma senha invalida     ${PASSWORD_INVALIDO}
+    Clica no botao Login
+    Campo senha está destacado
+    Está na tela de Login  
+
+Cenário: Usuário clica em "Sign Up"
+    # Abre a página de Login
+    Vai até tela de Login 
+    Está na tela de Login 
+    Clica no botao Sign Up
+    Abre a pagina de Sign Up
+    Está na tela de Sign Up
 *** Keywords ***
-Open Browser To Login Page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}
+Digita um email valido
+    [Arguments]    ${EMAIL_CERTO}
+    Input Text    login-email    ${EMAIL_CERTO}
 
-Input Email
-    [Arguments]    ${INPUT_EMAIL}
-    Input Text    login-email    ${INPUT_EMAIL}
+Digita um email invalido
+    [Arguments]    ${EMAIL_INVALIDO}
+    Input Text    login-email    ${EMAIL_INVALIDO}
 
-Input Password
-    [Arguments]    ${INPUT_PASSWORD}
-    Input Text    login-password    ${INPUT_PASSWORD}
+Digita uma senha valida
+    [Arguments]    ${PASSWORD_CERTO}
+    Input Text    login-password    ${PASSWORD_CERTO}
 
-Click Login Button
+Digita uma senha invalida
+    [Arguments]    ${PASSWORD_INVALIDO}
+    Input Text    login-password    ${PASSWORD_INVALIDO}
+
+Campo email está destacado
+    ${isHighlighted}=       Run Keyword And Return Status  Wait Until Page Contains Element  //div[@id="login-password" and contains(@class,'highlight')]  ${TIMEOUT AJAX}
+    Run Keyword If          ${isHighlighted}        is ${TRUE}
+    
+Campo senha está destacado
+    ${isHighlighted}=       Run Keyword And Return Status  Wait Until Page Contains Element  //div[@id="login-password" and contains(@class,'highlight')]  ${TIMEOUT AJAX}
+    Run Keyword If          ${isHighlighted}        is ${TRUE}
+    
+Clica no botao Login
     Click Element	login-button
 
-Input DDI
-    Click Element	class:selected-dial-code
-    Click Element	xpath: //*[contains(text(), "Brazil (Brasil)")]
-
-input Phone
-    [Arguments]    ${inputPhone}
-    Input Text     inputPhone    ${inputPhone}
+Clica no botao Sign Up
+    Click Element	login-signup
