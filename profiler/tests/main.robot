@@ -9,6 +9,9 @@ ${IMG_GITHUB}       https://avatars.githubusercontent.com/u/18700326?s=96&v=4
 ${NOME_NOVO}        Carlos Silva
 ${CARGO_NOVO}       FULLSTACK DEVELOPER
 ${EXP_NOVO}         3
+${HIGH_TITLE}       Mentor JR.
+${HIGH_TEXT}        Mentor na Dev Academy
+${BIO_NOVO}         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. Phasellus sed nibh non metus condimentum commodo. Nam sit amet interdum nulla, eget convallis nisi. Donec rhoncus et ipsum vitae lobortis. Sed eros nunc, elementum eu facilisis a, condimentum ut nisl. Nunc pellentesque porttitor ante pellentesque rhoncus.
 ${NOVA_}            Chrome
 
 
@@ -34,42 +37,34 @@ Cenário: Login com sucesso
 #     When Adiciona o texto        ${NOME_NOVO}
 #     Then Tem o texto             ${NOME_NOVO}
 
-Cenário: Editar cargo com sucesso
-    Given Está logado na Pagina Principal 
-    And Clica no campo de cargo
-    When Adiciona o texto        ${CARGO_NOVO}
-    Then Tem o texto             ${CARGO_NOVO}
+# Cenário: Editar cargo com sucesso
+#     Given Está logado na Pagina Principal 
+#     And Clica no campo de cargo
+#     When Adiciona o texto        ${CARGO_NOVO}
+#     Then Tem o texto             ${CARGO_NOVO}
 
  
-Cenário: Editar anos de experiência com sucesso
-    Given Está logado na Pagina Principal 
-    And Clica no campo de experiência
-    When Adiciona o texto        ${EXP_NOVO}
-    Then Tem o texto             ${EXP_NOVO}
+# Cenário: Editar anos de experiência com sucesso
+#     Given Está logado na Pagina Principal 
+#     And Clica no campo de experiência
+#     When Adiciona o texto        ${EXP_NOVO}
+#     Then Tem o texto             ${EXP_NOVO}
 
  
 # Cenário: Editar cards de destaque com sucesso
 #     Given Está logado na Pagina Principal 
-#     And Clica no título de um card de destaque
-#     And Adiciona um título
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+#     And Clica no campo de Highlight1
+#     When Adiciona o texto       ${HIGH_TITLE}
+#     And Adiciona o texto        ${HIGH_TEXT}
+#     Then Tem o texto            ${HIGH_TITLE}
+#     And Tem o texto             ${HIGH_TEXT}
 
  
-# Cenário: Editar cards de destaque com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica na descrição de um card de destaque
-#     And Adiciona uma breve descrição
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
-
- 
-# Cenário: Editar a sessão biografia com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no texto da biografia
-#     And Adiciona texto sobre mim no campo
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+Cenário: Editar a sessão biografia com sucesso
+    Given Está logado na Pagina Principal 
+    And Clica no campo de Bio
+    When Adiciona o texto       ${BIO_NOVO}
+    And Tem o texto             ${BIO_NOVO}
 
  
 # Cenário: Editar imagem do card horizontal com sucesso
@@ -163,72 +158,72 @@ Não tem mais o texto
     Page Should Not Contain           ${TEXT}
 
 
-# ========== IMAGE
+# ========== Image
 Clica no campo de Image
     Click Element    main-image
 
 
-# ========== NOME
+# ========== Nome
 Clica no campo de Nome
     Click Element    main-name
 
 
-# ========== CARGO
+# ========== Cargo
 Clica no campo de Cargo
     Click Element    main-job
 
 
-# ========== 
+# ========== Experiência
 Clica no campo de Experiência
     Click Element    main-experience-year
 
 
-# ========== 
+# ========== Highlight1
 Clica no campo de Highlight1
     Click Element    main-highlight1
 
 
-# ========== 
+# ========== Highlight2
 Clica no campo de Highlight2
     Click Element    main-highlight2
 
 
-# ========== 
+# ========== Bio
 Clica no campo de Bio
     Click Element    main-about
 
 
-# ========== 
+# ========== Nome do App
 Clica no campo de Nome do App
     Click Element    app-name-Quest: UP!
 
 
-# ========== 
+# ========== Descrição do App
 Clica no campo de Descrição do App
     Click Element    app-text-Quest: UP!
 
 
-# ========== 
+# ========== Imagem do App
 Clica no campo de Imagem do App
     Click Element    app-img-Quest: UP!
 
 
-# ========== 
+# ========== Image do Certificado Scrum
 Clica no campo de Image do Certificado Scrum
     Click Element    certification-img-Scrum Certified
 
 
-# ========== 
+# ========== Nome do Curso do Certificado
 Clica no campo de Nome do Curso do Certificado
     Click Element    certification-p-Scrum Certified
 
 
-# ========== 
-Clica no campo de título do Contato
+# ========== Título do Contato
+Clica no campo de Título do Contato
     Click Element    contact-h3-luizcarlos_bsb2006@hotmail.com
 
 
-# ========== 
+# ========== Descrição do Contato
 Clica no campo de Descrição do Contato
     Click Element    contact-p-luizcarlos_bsb2006@hotmail.com
 

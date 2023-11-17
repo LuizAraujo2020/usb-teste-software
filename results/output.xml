@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.6 on darwin)" generated="20231117 09:25:36.615" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.6 on darwin)" generated="20231117 09:36:11.341" rpa="false" schemaversion="4">
 <suite id="s1" name="Usb-Teste-Software" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software">
 <suite id="s1-s1" name="Profiler" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler">
 <suite id="s1-s1-s1" name="Tests" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler/tests">
 <suite id="s1-s1-s1-s1" name="Main" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler/tests/main.robot">
-<test id="s1-s1-s1-s1-t1" name="Cenário: Login com sucesso" line="16">
+<test id="s1-s1-s1-s1-t1" name="Cenário: Login com sucesso" line="19">
 <kw name="Given Abre a página de Login" library="resources">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL_LOGIN}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231117 09:25:36.749" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5500/profiler/index.html'.</msg>
-<status status="PASS" starttime="20231117 09:25:36.748" endtime="20231117 09:25:39.385"/>
+<msg timestamp="20231117 09:36:11.496" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5500/profiler/index.html'.</msg>
+<status status="PASS" starttime="20231117 09:36:11.496" endtime="20231117 09:36:13.966"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:36.745" endtime="20231117 09:25:39.386"/>
+<status status="PASS" starttime="20231117 09:36:11.493" endtime="20231117 09:36:13.967"/>
 </kw>
 <kw name="And Está na tela de Login" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${URL_LOGIN}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:25:39.397" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/index.html'.</msg>
-<status status="PASS" starttime="20231117 09:25:39.393" endtime="20231117 09:25:39.397"/>
+<msg timestamp="20231117 09:36:13.981" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/index.html'.</msg>
+<status status="PASS" starttime="20231117 09:36:13.976" endtime="20231117 09:36:13.981"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:39.390" endtime="20231117 09:25:39.397"/>
+<status status="PASS" starttime="20231117 09:36:13.972" endtime="20231117 09:36:13.982"/>
 </kw>
 <kw name="And Digita um email valido">
 <arg>${EMAIL_CERTO}</arg>
@@ -30,10 +30,10 @@
 <arg>login-email</arg>
 <arg>${EMAIL_CERTO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231117 09:25:39.403" level="INFO">Typing text 'luiz@email.com' into text field 'login-email'.</msg>
-<status status="PASS" starttime="20231117 09:25:39.402" endtime="20231117 09:25:39.561"/>
+<msg timestamp="20231117 09:36:13.988" level="INFO">Typing text 'luiz@email.com' into text field 'login-email'.</msg>
+<status status="PASS" starttime="20231117 09:36:13.987" endtime="20231117 09:36:14.149"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:39.401" endtime="20231117 09:25:39.561"/>
+<status status="PASS" starttime="20231117 09:36:13.986" endtime="20231117 09:36:14.149"/>
 </kw>
 <kw name="And Digita uma senha valida">
 <arg>${PASSWORD_CERTO}</arg>
@@ -41,133 +41,92 @@
 <arg>login-password</arg>
 <arg>${PASSWORD_CERTO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231117 09:25:39.562" level="INFO">Typing text 'password123' into text field 'login-password'.</msg>
-<status status="PASS" starttime="20231117 09:25:39.562" endtime="20231117 09:25:39.639"/>
+<msg timestamp="20231117 09:36:14.151" level="INFO">Typing text 'password123' into text field 'login-password'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.150" endtime="20231117 09:36:14.227"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:39.561" endtime="20231117 09:25:39.639"/>
+<status status="PASS" starttime="20231117 09:36:14.149" endtime="20231117 09:36:14.227"/>
 </kw>
 <kw name="When Clica no botao Login">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231117 09:25:39.640" level="INFO">Clicking element 'login-button'.</msg>
-<status status="PASS" starttime="20231117 09:25:39.640" endtime="20231117 09:25:40.095"/>
+<msg timestamp="20231117 09:36:14.229" level="INFO">Clicking element 'login-button'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.228" endtime="20231117 09:36:14.581"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:39.639" endtime="20231117 09:25:40.095"/>
+<status status="PASS" starttime="20231117 09:36:14.228" endtime="20231117 09:36:14.581"/>
 </kw>
 <kw name="Then Está logado na Pagina Principal" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${MAIN_LOGGED}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:25:40.106" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.100" endtime="20231117 09:25:40.106"/>
+<msg timestamp="20231117 09:36:14.589" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.585" endtime="20231117 09:36:14.589"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.096" endtime="20231117 09:25:40.107"/>
+<status status="PASS" starttime="20231117 09:36:14.581" endtime="20231117 09:36:14.589"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:36.744" endtime="20231117 09:25:40.112"/>
+<status status="PASS" starttime="20231117 09:36:11.492" endtime="20231117 09:36:14.593"/>
 </test>
-<test id="s1-s1-s1-s1-t2" name="Cenário: Editar cargo com sucesso" line="37">
+<test id="s1-s1-s1-s1-t2" name="Cenário: Editar a sessão biografia com sucesso" line="63">
 <kw name="Given Está logado na Pagina Principal" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${MAIN_LOGGED}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:25:40.125" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.118" endtime="20231117 09:25:40.125"/>
+<msg timestamp="20231117 09:36:14.602" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.598" endtime="20231117 09:36:14.602"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.114" endtime="20231117 09:25:40.125"/>
+<status status="PASS" starttime="20231117 09:36:14.595" endtime="20231117 09:36:14.602"/>
 </kw>
-<kw name="And Clica no campo de cargo">
+<kw name="And Clica no campo de Bio">
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>main-job</arg>
+<arg>main-about</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231117 09:25:40.131" level="INFO">Clicking element 'main-job'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.130" endtime="20231117 09:25:40.238"/>
+<msg timestamp="20231117 09:36:14.607" level="INFO">Clicking element 'main-about'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.606" endtime="20231117 09:36:14.690"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.129" endtime="20231117 09:25:40.239"/>
+<status status="PASS" starttime="20231117 09:36:14.606" endtime="20231117 09:36:14.690"/>
 </kw>
 <kw name="When Adiciona o texto">
-<arg>${CARGO_NOVO}</arg>
+<arg>${BIO_NOVO}</arg>
 <kw name="Input Text Into Alert" library="SeleniumLibrary">
 <arg>${TEXT}</arg>
 <arg>action=ACCEPT</arg>
 <doc>Types the given ``text`` into an input field in an alert.</doc>
-<status status="PASS" starttime="20231117 09:25:40.241" endtime="20231117 09:25:40.251"/>
+<status status="PASS" starttime="20231117 09:36:14.691" endtime="20231117 09:36:14.698"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.240" endtime="20231117 09:25:40.251"/>
+<status status="PASS" starttime="20231117 09:36:14.691" endtime="20231117 09:36:14.698"/>
 </kw>
-<kw name="Then Tem o texto">
-<arg>${CARGO_NOVO}</arg>
+<kw name="And Tem o texto">
+<arg>${BIO_NOVO}</arg>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>${TEXT}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231117 09:25:40.270" level="INFO">Current page contains text 'FULLSTACK DEVELOPER'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.252" endtime="20231117 09:25:40.270"/>
+<msg timestamp="20231117 09:36:14.716" level="INFO">Current page contains text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. Phasellus sed nibh non metus condimentum commodo. Nam sit amet interdum nulla, eget convallis nisi. Donec rhoncus et ipsum vitae lobortis. Sed eros nunc, elementum eu facilisis a, condimentum ut nisl. Nunc pellentesque porttitor ante pellentesque rhoncus.'.</msg>
+<status status="PASS" starttime="20231117 09:36:14.699" endtime="20231117 09:36:14.716"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.252" endtime="20231117 09:25:40.270"/>
+<status status="PASS" starttime="20231117 09:36:14.699" endtime="20231117 09:36:14.717"/>
 </kw>
-<status status="PASS" starttime="20231117 09:25:40.113" endtime="20231117 09:25:40.271"/>
-</test>
-<test id="s1-s1-s1-s1-t3" name="Cenário: Editar anos de experiência com sucesso" line="44">
-<kw name="Given Está logado na Pagina Principal" library="resources">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<arg>${MAIN_LOGGED}</arg>
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:25:40.281" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.277" endtime="20231117 09:25:40.281"/>
-</kw>
-<status status="PASS" starttime="20231117 09:25:40.273" endtime="20231117 09:25:40.281"/>
-</kw>
-<kw name="And Clica no campo de experiência">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>main-experience-year</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231117 09:25:40.286" level="INFO">Clicking element 'main-experience-year'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.285" endtime="20231117 09:25:40.384"/>
-</kw>
-<status status="PASS" starttime="20231117 09:25:40.285" endtime="20231117 09:25:40.384"/>
-</kw>
-<kw name="When Adiciona o texto">
-<arg>${EXP_NOVO}</arg>
-<kw name="Input Text Into Alert" library="SeleniumLibrary">
-<arg>${TEXT}</arg>
-<arg>action=ACCEPT</arg>
-<doc>Types the given ``text`` into an input field in an alert.</doc>
-<status status="PASS" starttime="20231117 09:25:40.385" endtime="20231117 09:25:40.393"/>
-</kw>
-<status status="PASS" starttime="20231117 09:25:40.385" endtime="20231117 09:25:40.393"/>
-</kw>
-<kw name="Then Tem o texto">
-<arg>${EXP_NOVO}</arg>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>${TEXT}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231117 09:25:40.416" level="INFO">Current page contains text '3'.</msg>
-<status status="PASS" starttime="20231117 09:25:40.394" endtime="20231117 09:25:40.416"/>
-</kw>
-<status status="PASS" starttime="20231117 09:25:40.394" endtime="20231117 09:25:40.416"/>
-</kw>
-<status status="PASS" starttime="20231117 09:25:40.272" endtime="20231117 09:25:40.417"/>
+<status status="PASS" starttime="20231117 09:36:14.594" endtime="20231117 09:36:14.717"/>
 </test>
 <doc>Testes da Tela Sign Up</doc>
-<status status="PASS" starttime="20231117 09:25:36.640" endtime="20231117 09:25:40.418"/>
+<status status="PASS" starttime="20231117 09:36:11.372" endtime="20231117 09:36:14.719"/>
 </suite>
-<status status="PASS" starttime="20231117 09:25:36.638" endtime="20231117 09:25:40.420"/>
+<status status="PASS" starttime="20231117 09:36:11.370" endtime="20231117 09:36:14.722"/>
 </suite>
-<status status="PASS" starttime="20231117 09:25:36.637" endtime="20231117 09:25:40.422"/>
+<status status="PASS" starttime="20231117 09:36:11.368" endtime="20231117 09:36:14.724"/>
 </suite>
-<status status="PASS" starttime="20231117 09:25:36.621" endtime="20231117 09:25:40.424"/>
+<status status="PASS" starttime="20231117 09:36:11.348" endtime="20231117 09:36:14.726"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Usb-Teste-Software">Usb-Teste-Software</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1" name="Profiler">Usb-Teste-Software.Profiler</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1-s1" name="Tests">Usb-Teste-Software.Profiler.Tests</stat>
-<stat pass="3" fail="0" skip="0" id="s1-s1-s1-s1" name="Main">Usb-Teste-Software.Profiler.Tests.Main</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Usb-Teste-Software">Usb-Teste-Software</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Profiler">Usb-Teste-Software.Profiler</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="Tests">Usb-Teste-Software.Profiler.Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1" name="Main">Usb-Teste-Software.Profiler.Tests.Main</stat>
 </suite>
 </statistics>
 <errors>
