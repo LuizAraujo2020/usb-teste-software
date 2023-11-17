@@ -3,7 +3,6 @@ Documentation   Testes da Tela de Login
 Library         SeleniumLibrary
 Resource        resources.robot
 
-*** Variables ***
 
 *** Test Cases ***
 Cenário: Login com sucesso
@@ -57,8 +56,9 @@ Cenário: Usuário clica em "Sign Up"
     Vai até tela de Login 
     Está na tela de Login 
     Clica no botao Sign Up
-    Abre a pagina de Sign Up
+    Abre a página de Sign Up
     Está na tela de Sign Up
+    [Teardown]      Close Browser 
 *** Keywords ***
 Digita um email valido
     [Arguments]    ${EMAIL_CERTO}
@@ -77,7 +77,7 @@ Digita uma senha invalida
     Input Text    login-password    ${PASSWORD_INVALIDO}
 
 Campo email está destacado
-    ${isHighlighted}=       Run Keyword And Return Status  Wait Until Page Contains Element  //div[@id="login-password" and contains(@class,'highlight')]  ${TIMEOUT AJAX}
+    ${isHighlighted}=       Run Keyword And Return Status  Wait Until Page Contains Element  //div[@id="login-email" and contains(@class,'highlight')]  ${TIMEOUT AJAX}
     Run Keyword If          ${isHighlighted}        is ${TRUE}
     
 Campo senha está destacado

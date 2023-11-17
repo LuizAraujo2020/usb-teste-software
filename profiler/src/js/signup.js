@@ -47,7 +47,7 @@ function signupButtonOnClick() {
     const enteredPassword = signupPassword.value;
 
     if (checkDuplicatedUser(enteredEmail) == false) {
-        showErrorMessage('\nEmail aready registered.');
+        showErrorMessage('\nEmail already registered.');
         return
     }
 
