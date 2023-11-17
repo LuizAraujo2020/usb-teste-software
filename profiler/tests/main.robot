@@ -5,8 +5,10 @@ Resource        resources.robot
 
 *** Variables ***
 ${IMG_NOVA}         https://s2-techtudo.glbimg.com/L9wb1xt7tjjL-Ocvos-Ju0tVmfc=/0x0:1200x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/q/l/TIdfl2SA6J16XZAy56Mw/canvaai.png
-# ${IMG_NOVA}         kkkkk
 ${IMG_GITHUB}       https://avatars.githubusercontent.com/u/18700326?s=96&v=4
+${NOME_NOVO}        Carlos Silva
+${CARGO_NOVO}       FULLSTACK DEVELOPER
+${EXP_NOVO}         3
 ${NOVA_}            Chrome
 
 
@@ -19,35 +21,31 @@ Cenário: Login com sucesso
     When Clica no botao Login
     Then Está logado na Pagina Principal
 
-Cenário: Editar Imagem com sucesso
-    Given Está logado na Pagina Principal 
-    When Clica no campo de Image
-    And Adiciona o texto        ${IMG_NOVA}
-    Then A imagem não é mais a do GitHub
-    Then Está logado na Pagina Principal
+# Cenário: Editar Imagem com sucesso
+#     Given Está logado na Pagina Principal 
+#     When Clica no campo de Image
+#     And Adiciona o texto        ${IMG_NOVA}
+#     Then A imagem não é mais a    ${IMG_GITHUB}
+#     Then Está logado na Pagina Principal
 
 # Cenário: Editar nome com sucesso
 #     Given Está logado na Pagina Principal 
 #     And Clica no campo de nome
-#     And Adiciona um nome no campo
-#     When Clica fora do campo em edição
-#     Then o campo deve estar com o nome adicionado sendo mostrado
+#     When Adiciona o texto        ${NOME_NOVO}
+#     Then Tem o texto             ${NOME_NOVO}
+
+Cenário: Editar cargo com sucesso
+    Given Está logado na Pagina Principal 
+    And Clica no campo de cargo
+    When Adiciona o texto        ${CARGO_NOVO}
+    Then Tem o texto             ${CARGO_NOVO}
 
  
-# Cenário: Editar cargo com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de cargo
-#     And Adiciona um cargo
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
-
- 
-# Cenário: Editar anos de experiência com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de experiência
-#     And Adiciona um ano no campo
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+Cenário: Editar anos de experiência com sucesso
+    Given Está logado na Pagina Principal 
+    And Clica no campo de experiência
+    When Adiciona o texto        ${EXP_NOVO}
+    Then Tem o texto             ${EXP_NOVO}
 
  
 # Cenário: Editar cards de destaque com sucesso
@@ -151,58 +149,86 @@ Adiciona o texto
 
 Pressiona Enter
     SeleniumLibrary.Press Keys  None  RETURN
+    
+A imagem não é mais a
+    [Arguments]    ${IMG}
+    Page Should Not Contain Image           ${IMG}
+    
+Tem o texto
+    [Arguments]    ${TEXT}
+    Page Should Contain           ${TEXT}
+    
+Não tem mais o texto
+    [Arguments]    ${TEXT}
+    Page Should Not Contain           ${TEXT}
 
 
 # ========== IMAGE
 Clica no campo de Image
     Click Element    main-image
 
-Adiciona uma nova URL para image
-    [Arguments]    ${IMG}
-    Press Keys    NONE    ${IMG}
-    
 
-A imagem não é mais a do GitHub
-    Page Should Not Contain Image           ./resources/placeholder.png
-
-# ==========
-
+# ========== NOME
 Clica no campo de Nome
     Click Element    main-name
 
+
+# ========== CARGO
 Clica no campo de Cargo
     Click Element    main-job
 
+
+# ========== 
 Clica no campo de Experiência
     Click Element    main-experience-year
 
+
+# ========== 
 Clica no campo de Highlight1
     Click Element    main-highlight1
 
+
+# ========== 
 Clica no campo de Highlight2
     Click Element    main-highlight2
 
+
+# ========== 
 Clica no campo de Bio
     Click Element    main-about
 
+
+# ========== 
 Clica no campo de Nome do App
     Click Element    app-name-Quest: UP!
 
+
+# ========== 
 Clica no campo de Descrição do App
     Click Element    app-text-Quest: UP!
 
+
+# ========== 
 Clica no campo de Imagem do App
     Click Element    app-img-Quest: UP!
 
+
+# ========== 
 Clica no campo de Image do Certificado Scrum
     Click Element    certification-img-Scrum Certified
 
+
+# ========== 
 Clica no campo de Nome do Curso do Certificado
     Click Element    certification-p-Scrum Certified
 
+
+# ========== 
 Clica no campo de título do Contato
     Click Element    contact-h3-luizcarlos_bsb2006@hotmail.com
 
+
+# ========== 
 Clica no campo de Descrição do Contato
     Click Element    contact-p-luizcarlos_bsb2006@hotmail.com
 
