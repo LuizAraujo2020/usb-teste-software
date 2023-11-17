@@ -3,7 +3,6 @@ Documentation   Testes da Tela Sign Up
 Library         SeleniumLibrary
 Resource        resources.robot
 
-*** Variables ***
 
 *** Test Cases ***
 Cenário: Cadastro com sucesso

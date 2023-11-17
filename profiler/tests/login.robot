@@ -59,6 +59,7 @@ Cenário: Usuário clica em "Sign Up"
     Abre a página de Sign Up
     Está na tela de Sign Up
     [Teardown]      Close Browser 
+    
 *** Keywords ***
 Digita um email valido
     [Arguments]    ${EMAIL_CERTO}
