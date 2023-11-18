@@ -140,7 +140,7 @@ function createMainApps(apps) {
     
     apps.forEach(element => {
         result += `<div class="card app">
-            <img onclick="changeTextFromID('app-img-${element.title}', 'Insert an URL to the App image.')" id="app-img-${element.title}" src="${element.image}" alt="${element.title}">
+            <img onclick="changeURLFromID('app-img-${element.title}', 'Insert an URL to the App image.')" id="app-img-${element.title}" src="${element.image}" alt="${element.title}">
             <div class="app-content">
                 <h3 onclick="changeTextFromID('app-name-${element.title}', 'Insert the name of the App.')" id="app-name-${element.title}">${element.title}</h3>
                 <p onclick="changeTextFromID('app-text-${element.title}', 'Insert a small description of the App.')" id="app-text-${element.title}">${element.text}</p>
@@ -377,7 +377,7 @@ carAppExample.addEventListener("click", () => {
     storageSet(usersFrom, 'mocks');
 });
 
-function changeURLFromID(id, url) {
+function changeURLFromID(id, text) {
     if (isLoggedIn != true) { return }
 
     const element = document.getElementById(id);

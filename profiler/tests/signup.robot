@@ -38,7 +38,7 @@ Cenário: Cadastro sem senha
     And Está na tela de Sign Up  
 
 Cenário: Cadastro com confirmação email inválido
-    # Given Vai até tela de Sign Up
+    Given Vai até tela de Sign Up
     Given Abre a página de Sign Up
     And Está na tela de Sign Up
     And Digita um email válido
@@ -51,7 +51,7 @@ Cenário: Cadastro com confirmação email inválido
 
 Cenário: Cadastro com confirmação de senha inválida
     Given Vai até tela de Sign Up
-    # Given Abre a página de Sign Up
+    Given Abre a página de Sign Up
     And Está na tela de Sign Up
     And Digita um email válido
     And Digita uma confirmação de email válida

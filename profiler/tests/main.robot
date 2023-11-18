@@ -12,8 +12,14 @@ ${EXP_NOVO}         3
 ${HIGH_TITLE}       Mentor JR.
 ${HIGH_TEXT}        Mentor na Dev Academy
 ${BIO_NOVO}         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. Phasellus sed nibh non metus condimentum commodo. Nam sit amet interdum nulla, eget convallis nisi. Donec rhoncus et ipsum vitae lobortis. Sed eros nunc, elementum eu facilisis a, condimentum ut nisl. Nunc pellentesque porttitor ante pellentesque rhoncus.
+${APP_IMG}          ./resources/placeholder.png
+${APP_NAME}         Novo nome
+${APP_DESC}         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. 
+${CERT_IMG}         ./resources/placeholder.png
+${CERT_NAME}        Novo nome
+${CONT_TITLE}       novo@email.co
+${CONT_TEXT}        Esse é um novo email
 ${NOVA_}            Chrome
-
 
 *** Test Cases ***
 Cenário: Login com sucesso
@@ -24,103 +30,92 @@ Cenário: Login com sucesso
     When Clica no botao Login
     Then Está logado na Pagina Principal
 
-# Cenário: Editar Imagem com sucesso
-#     Given Está logado na Pagina Principal 
-#     When Clica no campo de Image
-#     And Adiciona o texto        ${IMG_NOVA}
-#     Then A imagem não é mais a    ${IMG_GITHUB}
-#     Then Está logado na Pagina Principal
+Cenário: Editar Imagem com sucesso
+    # Given Está logado na Pagina Principal 
+    When Clica no campo de Image
+    And Adiciona o texto        ${IMG_NOVA}
+    Then A imagem não é mais a    ${IMG_GITHUB}
+    Then Está logado na Pagina Principal
 
-# Cenário: Editar nome com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de nome
-#     When Adiciona o texto        ${NOME_NOVO}
-#     Then Tem o texto             ${NOME_NOVO}
+Cenário: Editar nome com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de nome
+    When Adiciona o texto        ${NOME_NOVO}
+    Then Tem o texto             ${NOME_NOVO}
 
-# Cenário: Editar cargo com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de cargo
-#     When Adiciona o texto        ${CARGO_NOVO}
-#     Then Tem o texto             ${CARGO_NOVO}
-
- 
-# Cenário: Editar anos de experiência com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de experiência
-#     When Adiciona o texto        ${EXP_NOVO}
-#     Then Tem o texto             ${EXP_NOVO}
+Cenário: Editar cargo com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de cargo
+    When Adiciona o texto        ${CARGO_NOVO}
+    Then Tem o texto             ${CARGO_NOVO}
 
  
-# Cenário: Editar cards de destaque com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no campo de Highlight1
-#     When Adiciona o texto       ${HIGH_TITLE}
-#     And Adiciona o texto        ${HIGH_TEXT}
-#     Then Tem o texto            ${HIGH_TITLE}
-#     And Tem o texto             ${HIGH_TEXT}
+Cenário: Editar anos de experiência com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de experiência
+    When Adiciona o texto        ${EXP_NOVO}
+    Then Tem o texto             ${EXP_NOVO}
+
+ 
+Cenário: Editar cards de destaque com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Highlight1
+    When Adiciona o texto       ${HIGH_TITLE}
+    And Adiciona o texto        ${HIGH_TEXT}
+    Then Tem o texto            ${HIGH_TITLE}
+    And Tem o texto             ${HIGH_TEXT}
 
  
 Cenário: Editar a sessão biografia com sucesso
-    Given Está logado na Pagina Principal 
+    # Given Está logado na Pagina Principal 
     And Clica no campo de Bio
     When Adiciona o texto       ${BIO_NOVO}
     And Tem o texto             ${BIO_NOVO}
 
- 
-# Cenário: Editar imagem do card horizontal com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica na imagem de um card horizontal
-#     And Adiciona uma URL de uma imagem
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+
+Cenário: Editar imagem do card horizontal com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Imagem do App
+    When Adiciona o texto       ${APP_IMG}
+    And Tem a imagem            ${APP_IMG}
 
  
-# Cenário: Editar título do card horizontal com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no título de um card horizontal
-#     And Adiciona um novo título
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+Cenário: Editar título do card horizontal com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Nome do App
+    When Adiciona o texto       ${APP_NAME}
+    And Tem o texto             ${APP_NAME}
+
+
+Cenário: Editar descrição do card horizontal com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Descrição do App
+    When Adiciona o texto       ${APP_DESC}
+    And Tem o texto             ${APP_DESC}
 
  
-# Cenário: Editar descrição do card horizontal com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica na descrição de um card horizontal
-#     And Adiciona uma breve descrição
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+Cenário: Editar imagem do card de Certificado com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Image do Certificado Scrum
+    When Adiciona o texto       ${CERT_IMG}
+    Then Tem a imagem           ${CERT_IMG}
 
  
-# Cenário: Editar imagem do card de Certificado com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica na imagem do card de Certificado
-#     And Adiciona uma URL da imagem do certificado
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
+Cenário: Editar texto do card de Certificado com sucesso
+    # Given Está logado na Pagina Principal 
+    And Clica no campo de Nome do Curso do Certificado
+    When Adiciona o texto       ${CERT_NAME}
+    And Tem o texto             ${CERT_NAME}
 
  
-# Cenário: Editar texto do card de Certificado com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica no texto do card de Certificado
-#     And Adiciona o nome e carca horária do curso feito
-#     When Clica fora do campo em edição
-#     Then a nova informação deve permanecer salva no referido campo.
-
- 
-# Cenário: Editar sessão de repositórios com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica em editar sessão de repositórios
-#     And Adiciona uma URL válida
-#     When eu clicar em salvar
-#     Then a lista deve estar com os repositórios que vieram do perfil do Github
-
- 
-# Cenário: Editar sessão de contato com sucesso
-#     Given Está logado na Pagina Principal 
-#     And Clica em editar sessão de contato
-#     And Adiciona uma URL válida e uma descrição 
-#     When eu clicar em salvar 
-#     Then o card editado deve estar com as alterações sendo mostradas
+Cenário: Editar sessão de contato com sucesso
+    Given Está logado na Pagina Principal 
+    And Clica no campo de Título do Contato
+    When Adiciona o texto       ${CONT_TITLE}
+    And Clica no campo de Descrição do Contato
+    When Adiciona o texto       ${CONT_TEXT}
+    And Tem o texto             ${CONT_TITLE}
+    And Tem o texto             ${CONT_TEXT}
     # [Teardown]      Close Browser 
 
 *** Keywords ***
@@ -145,17 +140,21 @@ Adiciona o texto
 Pressiona Enter
     SeleniumLibrary.Press Keys  None  RETURN
     
+Tem a imagem 
+    [Arguments]    ${IMG}
+    Page Should Contain Image       ${IMG}
+
 A imagem não é mais a
     [Arguments]    ${IMG}
-    Page Should Not Contain Image           ${IMG}
+    Page Should Not Contain Image   ${IMG}
     
 Tem o texto
     [Arguments]    ${TEXT}
-    Page Should Contain           ${TEXT}
+    Page Should Contain             ${TEXT}
     
 Não tem mais o texto
     [Arguments]    ${TEXT}
-    Page Should Not Contain           ${TEXT}
+    Page Should Not Contain         ${TEXT}
 
 
 # ========== Image
@@ -193,6 +192,11 @@ Clica no campo de Bio
     Click Element    main-about
 
 
+# ========== Imagem do App
+Clica no campo de Imagem do App
+    Click Element    app-img-Quest: UP!
+
+
 # ========== Nome do App
 Clica no campo de Nome do App
     Click Element    app-name-Quest: UP!
@@ -201,11 +205,6 @@ Clica no campo de Nome do App
 # ========== Descrição do App
 Clica no campo de Descrição do App
     Click Element    app-text-Quest: UP!
-
-
-# ========== Imagem do App
-Clica no campo de Imagem do App
-    Click Element    app-img-Quest: UP!
 
 
 # ========== Image do Certificado Scrum

@@ -42,7 +42,7 @@ Cenário: Login com email invalido
     Está na tela de Login  
 
 Cenário: Login com senha inválida
-    # Abre a página de Login
+    Abre a página de Login
     Vai até tela de Login
     Está na tela de Login 
     Digita um email valido      ${EMAIL_CERTO}

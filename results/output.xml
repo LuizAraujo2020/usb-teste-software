@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.6 on darwin)" generated="20231117 09:36:11.341" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.6 on darwin)" generated="20231117 13:26:22.097" rpa="false" schemaversion="4">
 <suite id="s1" name="Usb-Teste-Software" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software">
 <suite id="s1-s1" name="Profiler" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler">
 <suite id="s1-s1-s1" name="Tests" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler/tests">
 <suite id="s1-s1-s1-s1" name="Main" source="/Users/luizaraujo/Desktop/Github/Web/Projects/usb-teste-software/profiler/tests/main.robot">
-<test id="s1-s1-s1-s1-t1" name="Cenário: Login com sucesso" line="19">
+<test id="s1-s1-s1-s1-t1" name="Cenário: Login com sucesso" line="25">
 <kw name="Given Abre a página de Login" library="resources">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL_LOGIN}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231117 09:36:11.496" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5500/profiler/index.html'.</msg>
-<status status="PASS" starttime="20231117 09:36:11.496" endtime="20231117 09:36:13.966"/>
+<msg timestamp="20231117 13:26:22.633" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5500/profiler/index.html'.</msg>
+<status status="PASS" starttime="20231117 13:26:22.632" endtime="20231117 13:26:25.171"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:11.493" endtime="20231117 09:36:13.967"/>
+<status status="PASS" starttime="20231117 13:26:22.623" endtime="20231117 13:26:25.172"/>
 </kw>
 <kw name="And Está na tela de Login" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${URL_LOGIN}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:36:13.981" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/index.html'.</msg>
-<status status="PASS" starttime="20231117 09:36:13.976" endtime="20231117 09:36:13.981"/>
+<msg timestamp="20231117 13:26:25.187" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/index.html'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.181" endtime="20231117 13:26:25.188"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:13.972" endtime="20231117 09:36:13.982"/>
+<status status="PASS" starttime="20231117 13:26:25.177" endtime="20231117 13:26:25.188"/>
 </kw>
 <kw name="And Digita um email valido">
 <arg>${EMAIL_CERTO}</arg>
@@ -30,10 +30,10 @@
 <arg>login-email</arg>
 <arg>${EMAIL_CERTO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231117 09:36:13.988" level="INFO">Typing text 'luiz@email.com' into text field 'login-email'.</msg>
-<status status="PASS" starttime="20231117 09:36:13.987" endtime="20231117 09:36:14.149"/>
+<msg timestamp="20231117 13:26:25.194" level="INFO">Typing text 'luiz@email.com' into text field 'login-email'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.193" endtime="20231117 13:26:25.372"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:13.986" endtime="20231117 09:36:14.149"/>
+<status status="PASS" starttime="20231117 13:26:25.193" endtime="20231117 13:26:25.372"/>
 </kw>
 <kw name="And Digita uma senha valida">
 <arg>${PASSWORD_CERTO}</arg>
@@ -41,49 +41,229 @@
 <arg>login-password</arg>
 <arg>${PASSWORD_CERTO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231117 09:36:14.151" level="INFO">Typing text 'password123' into text field 'login-password'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.150" endtime="20231117 09:36:14.227"/>
+<msg timestamp="20231117 13:26:25.374" level="INFO">Typing text 'password123' into text field 'login-password'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.373" endtime="20231117 13:26:25.457"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.149" endtime="20231117 09:36:14.227"/>
+<status status="PASS" starttime="20231117 13:26:25.373" endtime="20231117 13:26:25.457"/>
 </kw>
 <kw name="When Clica no botao Login">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231117 09:36:14.229" level="INFO">Clicking element 'login-button'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.228" endtime="20231117 09:36:14.581"/>
+<msg timestamp="20231117 13:26:25.459" level="INFO">Clicking element 'login-button'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.458" endtime="20231117 13:26:25.804"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.228" endtime="20231117 09:36:14.581"/>
+<status status="PASS" starttime="20231117 13:26:25.458" endtime="20231117 13:26:25.805"/>
 </kw>
 <kw name="Then Está logado na Pagina Principal" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${MAIN_LOGGED}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:36:14.589" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.585" endtime="20231117 09:36:14.589"/>
+<msg timestamp="20231117 13:26:25.812" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.809" endtime="20231117 13:26:25.812"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.581" endtime="20231117 09:36:14.589"/>
+<status status="PASS" starttime="20231117 13:26:25.805" endtime="20231117 13:26:25.813"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:11.492" endtime="20231117 09:36:14.593"/>
+<status status="PASS" starttime="20231117 13:26:22.622" endtime="20231117 13:26:25.816"/>
 </test>
-<test id="s1-s1-s1-s1-t2" name="Cenário: Editar a sessão biografia com sucesso" line="63">
-<kw name="Given Está logado na Pagina Principal" library="resources">
+<test id="s1-s1-s1-s1-t2" name="Cenário: Editar Imagem com sucesso" line="33">
+<kw name="When Clica no campo de Image">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>main-image</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:25.819" level="INFO">Clicking element 'main-image'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.818" endtime="20231117 13:26:25.906"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:25.818" endtime="20231117 13:26:25.906"/>
+</kw>
+<kw name="And Adiciona o texto">
+<arg>${IMG_NOVA}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:25.908" endtime="20231117 13:26:25.916"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:25.907" endtime="20231117 13:26:25.916"/>
+</kw>
+<kw name="Then A imagem não é mais a">
+<arg>${IMG_GITHUB}</arg>
+<kw name="Page Should Not Contain Image" library="SeleniumLibrary">
+<arg>${IMG}</arg>
+<doc>Verifies image identified by ``locator`` is not found from current page.</doc>
+<msg timestamp="20231117 13:26:25.937" level="INFO">Current page does not contain image 'https://avatars.githubusercontent.com/u/18700326?s=96&amp;v=4'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.917" endtime="20231117 13:26:25.937"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:25.917" endtime="20231117 13:26:25.938"/>
+</kw>
+<kw name="Then Está logado na Pagina Principal" library="resources">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>${MAIN_LOGGED}</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20231117 09:36:14.602" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.598" endtime="20231117 09:36:14.602"/>
+<msg timestamp="20231117 13:26:25.947" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.942" endtime="20231117 13:26:25.947"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.595" endtime="20231117 09:36:14.602"/>
+<status status="PASS" starttime="20231117 13:26:25.938" endtime="20231117 13:26:25.948"/>
 </kw>
+<status status="PASS" starttime="20231117 13:26:25.817" endtime="20231117 13:26:25.951"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Cenário: Editar nome com sucesso" line="40">
+<kw name="And Clica no campo de nome">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>main-name</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:25.956" level="INFO">Clicking element 'main-name'.</msg>
+<status status="PASS" starttime="20231117 13:26:25.955" endtime="20231117 13:26:26.063"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:25.954" endtime="20231117 13:26:26.064"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${NOME_NOVO}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:26.065" endtime="20231117 13:26:26.073"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.064" endtime="20231117 13:26:26.073"/>
+</kw>
+<kw name="Then Tem o texto">
+<arg>${NOME_NOVO}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:26.123" level="INFO">Current page contains text 'Carlos Silva'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.075" endtime="20231117 13:26:26.123"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.074" endtime="20231117 13:26:26.123"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:25.952" endtime="20231117 13:26:26.124"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Cenário: Editar cargo com sucesso" line="46">
+<kw name="And Clica no campo de cargo">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>main-job</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:26.127" level="INFO">Clicking element 'main-job'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.126" endtime="20231117 13:26:26.198"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.125" endtime="20231117 13:26:26.198"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${CARGO_NOVO}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:26.199" endtime="20231117 13:26:26.209"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.199" endtime="20231117 13:26:26.209"/>
+</kw>
+<kw name="Then Tem o texto">
+<arg>${CARGO_NOVO}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:26.242" level="INFO">Current page contains text 'FULLSTACK DEVELOPER'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.211" endtime="20231117 13:26:26.242"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.210" endtime="20231117 13:26:26.242"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.125" endtime="20231117 13:26:26.243"/>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Cenário: Editar anos de experiência com sucesso" line="53">
+<kw name="And Clica no campo de experiência">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>main-experience-year</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:26.246" level="INFO">Clicking element 'main-experience-year'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.246" endtime="20231117 13:26:26.329"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.245" endtime="20231117 13:26:26.329"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${EXP_NOVO}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:26.331" endtime="20231117 13:26:26.340"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.330" endtime="20231117 13:26:26.340"/>
+</kw>
+<kw name="Then Tem o texto">
+<arg>${EXP_NOVO}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:26.379" level="INFO">Current page contains text '3'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.341" endtime="20231117 13:26:26.379"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.340" endtime="20231117 13:26:26.379"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.244" endtime="20231117 13:26:26.380"/>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Cenário: Editar cards de destaque com sucesso" line="60">
+<kw name="And Clica no campo de Highlight1">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>main-highlight1</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:26.385" level="INFO">Clicking element 'main-highlight1'.</msg>
+<status status="PASS" starttime="20231117 13:26:26.382" endtime="20231117 13:26:27.023"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.382" endtime="20231117 13:26:27.023"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${HIGH_TITLE}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:27.025" endtime="20231117 13:26:27.033"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.024" endtime="20231117 13:26:27.034"/>
+</kw>
+<kw name="And Adiciona o texto">
+<arg>${HIGH_TEXT}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:27.035" endtime="20231117 13:26:27.100"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.034" endtime="20231117 13:26:27.101"/>
+</kw>
+<kw name="Then Tem o texto">
+<arg>${HIGH_TITLE}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:27.128" level="INFO">Current page contains text 'Mentor JR.'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.102" endtime="20231117 13:26:27.128"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.101" endtime="20231117 13:26:27.128"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${HIGH_TEXT}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:27.147" level="INFO">Current page contains text 'Mentor na Dev Academy'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.129" endtime="20231117 13:26:27.147"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.129" endtime="20231117 13:26:27.148"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:26.381" endtime="20231117 13:26:27.148"/>
+</test>
+<test id="s1-s1-s1-s1-t7" name="Cenário: Editar a sessão biografia com sucesso" line="69">
 <kw name="And Clica no campo de Bio">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>main-about</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231117 09:36:14.607" level="INFO">Clicking element 'main-about'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.606" endtime="20231117 09:36:14.690"/>
+<msg timestamp="20231117 13:26:27.151" level="INFO">Clicking element 'main-about'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.150" endtime="20231117 13:26:27.270"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.606" endtime="20231117 09:36:14.690"/>
+<status status="PASS" starttime="20231117 13:26:27.150" endtime="20231117 13:26:27.270"/>
 </kw>
 <kw name="When Adiciona o texto">
 <arg>${BIO_NOVO}</arg>
@@ -91,42 +271,349 @@
 <arg>${TEXT}</arg>
 <arg>action=ACCEPT</arg>
 <doc>Types the given ``text`` into an input field in an alert.</doc>
-<status status="PASS" starttime="20231117 09:36:14.691" endtime="20231117 09:36:14.698"/>
+<status status="PASS" starttime="20231117 13:26:27.272" endtime="20231117 13:26:27.281"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.691" endtime="20231117 09:36:14.698"/>
+<status status="PASS" starttime="20231117 13:26:27.271" endtime="20231117 13:26:27.281"/>
 </kw>
 <kw name="And Tem o texto">
 <arg>${BIO_NOVO}</arg>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>${TEXT}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20231117 09:36:14.716" level="INFO">Current page contains text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. Phasellus sed nibh non metus condimentum commodo. Nam sit amet interdum nulla, eget convallis nisi. Donec rhoncus et ipsum vitae lobortis. Sed eros nunc, elementum eu facilisis a, condimentum ut nisl. Nunc pellentesque porttitor ante pellentesque rhoncus.'.</msg>
-<status status="PASS" starttime="20231117 09:36:14.699" endtime="20231117 09:36:14.716"/>
+<msg timestamp="20231117 13:26:27.307" level="INFO">Current page contains text 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et massa metus. In hac habitasse platea dictumst. Phasellus sed nibh non metus condimentum commodo. Nam sit amet interdum nulla, eget convallis nisi. Donec rhoncus et ipsum vitae lobortis. Sed eros nunc, elementum eu facilisis a, condimentum ut nisl. Nunc pellentesque porttitor ante pellentesque rhoncus.'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.282" endtime="20231117 13:26:27.308"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.699" endtime="20231117 09:36:14.717"/>
+<status status="PASS" starttime="20231117 13:26:27.281" endtime="20231117 13:26:27.308"/>
 </kw>
-<status status="PASS" starttime="20231117 09:36:14.594" endtime="20231117 09:36:14.717"/>
+<status status="PASS" starttime="20231117 13:26:27.149" endtime="20231117 13:26:27.308"/>
+</test>
+<test id="s1-s1-s1-s1-t8" name="Cenário: Editar imagem do card horizontal com sucesso" line="76">
+<kw name="And Clica no campo de Imagem do App">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>app-img-Quest: UP!</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:27.312" level="INFO">Clicking element 'app-img-Quest: UP!'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.311" endtime="20231117 13:26:27.416"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.311" endtime="20231117 13:26:27.416"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${APP_IMG}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:27.417" endtime="20231117 13:26:27.425"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.416" endtime="20231117 13:26:27.426"/>
+</kw>
+<kw name="And Tem a imagem">
+<arg>${APP_IMG}</arg>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${IMG}</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20231117 13:26:27.478" level="INFO">Current page contains image './resources/placeholder.png'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.427" endtime="20231117 13:26:27.478"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.426" endtime="20231117 13:26:27.478"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.309" endtime="20231117 13:26:27.478"/>
+</test>
+<test id="s1-s1-s1-s1-t9" name="Cenário: Editar título do card horizontal com sucesso" line="83">
+<kw name="And Clica no campo de Nome do App">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>app-name-Quest: UP!</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:27.481" level="INFO">Clicking element 'app-name-Quest: UP!'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.481" endtime="20231117 13:26:27.559"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.480" endtime="20231117 13:26:27.559"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${APP_NAME}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:27.560" endtime="20231117 13:26:27.567"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.560" endtime="20231117 13:26:27.568"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${APP_NAME}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:27.601" level="INFO">Current page contains text 'Novo nome'.</msg>
+<status status="PASS" starttime="20231117 13:26:27.569" endtime="20231117 13:26:27.602"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.568" endtime="20231117 13:26:27.602"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:27.479" endtime="20231117 13:26:27.602"/>
+</test>
+<test id="s1-s1-s1-s1-t10" name="Cenário: Editar descrição do card horizontal com sucesso" line="90">
+<kw name="And Clica no campo de Descrição do App">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>app-text-Quest: UP!</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:27.606" level="INFO">Clicking element 'app-text-Quest: UP!'.</msg>
+<msg timestamp="20231117 13:26:28.553" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-89.png"&gt;&lt;img src="selenium-screenshot-89.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231117 13:26:28.554" level="FAIL">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x00000001056e4d28 chromedriver + 4795688
+1   chromedriver                        0x00000001056dc2b3 chromedriver + 4760243
+2   chromedriver                        0x00000001052b588d chromedriver + 407693
+3   chromedriver                        0x00000001052c6c1c chromedriver + 478236
+4   chromedriver                        0x00000001052bc784 chromedriver + 436100
+5   chromedriver                        0x00000001052ba6ed chromedriver + 427757
+6   chromedriver                        0x00000001052be0c4 chromedriver + 442564
+7   chromedriver                        0x00000001052be20c chromedriver + 442892
+8   chromedriver                        0x0000000105306583 chromedriver + 738691
+9   chromedriver                        0x00000001052f8291 chromedriver + 680593
+10  chromedriver                        0x000000010532bca2 chromedriver + 892066
+11  chromedriver                        0x00000001052f7c63 chromedriver + 679011
+12  chromedriver                        0x000000010532be5e chromedriver + 892510
+13  chromedriver                        0x0000000105347b2b chromedriver + 1006379
+14  chromedriver                        0x000000010532ba73 chromedriver + 891507
+15  chromedriver                        0x00000001052f6143 chromedriver + 672067
+16  chromedriver                        0x00000001052f731e chromedriver + 676638
+17  chromedriver                        0x00000001056a5795 chromedriver + 4536213
+18  chromedriver                        0x00000001056aa853 chromedriver + 4556883
+19  chromedriver                        0x000000010568b001 chromedriver + 4427777
+20  chromedriver                        0x00000001056ab59d chromedriver + 4560285
+21  chromedriver                        0x000000010567c48c chromedriver + 4367500
+22  chromedriver                        0x00000001056cb0e8 chromedriver + 4690152
+23  chromedriver                        0x00000001056cb29e chromedriver + 4690590
+24  chromedriver                        0x00000001056dbeee chromedriver + 4759278
+25  libsystem_pthread.dylib             0x00007ff805eaf202 _pthread_start + 99
+26  libsystem_pthread.dylib             0x00007ff805eaabab thread_start + 15
+</msg>
+<status status="FAIL" starttime="20231117 13:26:27.605" endtime="20231117 13:26:28.561"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:27.604" endtime="20231117 13:26:28.561"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${APP_DESC}</arg>
+<status status="NOT RUN" starttime="20231117 13:26:28.561" endtime="20231117 13:26:28.561"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${APP_DESC}</arg>
+<status status="NOT RUN" starttime="20231117 13:26:28.562" endtime="20231117 13:26:28.562"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:27.603" endtime="20231117 13:26:28.562">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x00000001056e4d28 chromedriver + 4795688
+1   chromedriver                        0x00000001056dc2b3 chromedriver + 4760243
+2   chromedriver                        0x00000001052b588d chromedriver + 407693
+3   chromedriver                        0x00000001052c6c1c chromedriver + 478236
+4   chromedriver                        0x00000001052bc784 chromedriver + 436100
+5   chromedriver                        0x00000001052ba6ed chromedriver + 427757
+6   chromedriver                        0x00000001052be0c4 chromedriver + 442564
+    [ Message content over the limit has been removed. ]
+16  chromedriver                        0x00000001052f731e chromedriver + 676638
+17  chromedriver                        0x00000001056a5795 chromedriver + 4536213
+18  chromedriver                        0x00000001056aa853 chromedriver + 4556883
+19  chromedriver                        0x000000010568b001 chromedriver + 4427777
+20  chromedriver                        0x00000001056ab59d chromedriver + 4560285
+21  chromedriver                        0x000000010567c48c chromedriver + 4367500
+22  chromedriver                        0x00000001056cb0e8 chromedriver + 4690152
+23  chromedriver                        0x00000001056cb29e chromedriver + 4690590
+24  chromedriver                        0x00000001056dbeee chromedriver + 4759278
+25  libsystem_pthread.dylib             0x00007ff805eaf202 _pthread_start + 99
+26  libsystem_pthread.dylib             0x00007ff805eaabab thread_start + 15</status>
+</test>
+<test id="s1-s1-s1-s1-t11" name="Cenário: Editar imagem do card de Certificado com sucesso" line="97">
+<kw name="And Clica no campo de Image do Certificado Scrum">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>certification-img-Scrum Certified</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:28.564" level="INFO">Clicking element 'certification-img-Scrum Certified'.</msg>
+<status status="PASS" starttime="20231117 13:26:28.563" endtime="20231117 13:26:28.633"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.563" endtime="20231117 13:26:28.634"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${CERT_IMG}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:28.635" endtime="20231117 13:26:28.645"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.634" endtime="20231117 13:26:28.646"/>
+</kw>
+<kw name="Then Tem a imagem">
+<arg>${CERT_IMG}</arg>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${IMG}</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20231117 13:26:28.669" level="INFO">Current page contains image './resources/placeholder.png'.</msg>
+<status status="PASS" starttime="20231117 13:26:28.647" endtime="20231117 13:26:28.669"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.646" endtime="20231117 13:26:28.669"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.562" endtime="20231117 13:26:28.670"/>
+</test>
+<test id="s1-s1-s1-s1-t12" name="Cenário: Editar texto do card de Certificado com sucesso" line="104">
+<kw name="And Clica no campo de Nome do Curso do Certificado">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>certification-p-Scrum Certified</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:28.675" level="INFO">Clicking element 'certification-p-Scrum Certified'.</msg>
+<status status="PASS" starttime="20231117 13:26:28.674" endtime="20231117 13:26:28.815"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.672" endtime="20231117 13:26:28.815"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${CERT_NAME}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:28.817" endtime="20231117 13:26:29.000"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:28.816" endtime="20231117 13:26:29.000"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${CERT_NAME}</arg>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231117 13:26:29.809" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-90.png"&gt;&lt;img src="selenium-screenshot-90.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231117 13:26:29.809" level="FAIL">Page should have contained text 'Novo nome' but did not.</msg>
+<status status="FAIL" starttime="20231117 13:26:29.002" endtime="20231117 13:26:29.810"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:29.001" endtime="20231117 13:26:29.810"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:28.671" endtime="20231117 13:26:29.811">Page should have contained text 'Novo nome' but did not.</status>
+</test>
+<test id="s1-s1-s1-s1-t13" name="Cenário: Editar sessão de contato com sucesso" line="111">
+<kw name="Given Está logado na Pagina Principal" library="resources">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${MAIN_LOGGED}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20231117 13:26:29.819" level="INFO">Current location is 'http://127.0.0.1:5500/profiler/src/main.html?email=luiz@email.com&amp;isLoggedIn=true'.</msg>
+<status status="PASS" starttime="20231117 13:26:29.815" endtime="20231117 13:26:29.819"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:29.812" endtime="20231117 13:26:29.819"/>
+</kw>
+<kw name="And Clica no campo de Título do Contato">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>contact-h3-luizcarlos_bsb2006@hotmail.com</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:29.823" level="INFO">Clicking element 'contact-h3-luizcarlos_bsb2006@hotmail.com'.</msg>
+<status status="PASS" starttime="20231117 13:26:29.822" endtime="20231117 13:26:29.892"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:29.822" endtime="20231117 13:26:29.893"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${CONT_TITLE}</arg>
+<kw name="Input Text Into Alert" library="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>action=ACCEPT</arg>
+<doc>Types the given ``text`` into an input field in an alert.</doc>
+<status status="PASS" starttime="20231117 13:26:29.894" endtime="20231117 13:26:29.901"/>
+</kw>
+<status status="PASS" starttime="20231117 13:26:29.893" endtime="20231117 13:26:29.901"/>
+</kw>
+<kw name="And Clica no campo de Descrição do Contato">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>contact-p-luizcarlos_bsb2006@hotmail.com</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231117 13:26:29.903" level="INFO">Clicking element 'contact-p-luizcarlos_bsb2006@hotmail.com'.</msg>
+<msg timestamp="20231117 13:26:30.860" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-91.png"&gt;&lt;img src="selenium-screenshot-91.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231117 13:26:30.860" level="FAIL">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x00000001056e4d28 chromedriver + 4795688
+1   chromedriver                        0x00000001056dc2b3 chromedriver + 4760243
+2   chromedriver                        0x00000001052b588d chromedriver + 407693
+3   chromedriver                        0x00000001052c6c1c chromedriver + 478236
+4   chromedriver                        0x00000001052bc784 chromedriver + 436100
+5   chromedriver                        0x00000001052ba6ed chromedriver + 427757
+6   chromedriver                        0x00000001052be0c4 chromedriver + 442564
+7   chromedriver                        0x00000001052be20c chromedriver + 442892
+8   chromedriver                        0x0000000105306583 chromedriver + 738691
+9   chromedriver                        0x00000001052f8291 chromedriver + 680593
+10  chromedriver                        0x000000010532bca2 chromedriver + 892066
+11  chromedriver                        0x00000001052f7c63 chromedriver + 679011
+12  chromedriver                        0x000000010532be5e chromedriver + 892510
+13  chromedriver                        0x0000000105347b2b chromedriver + 1006379
+14  chromedriver                        0x000000010532ba73 chromedriver + 891507
+15  chromedriver                        0x00000001052f6143 chromedriver + 672067
+16  chromedriver                        0x00000001052f731e chromedriver + 676638
+17  chromedriver                        0x00000001056a5795 chromedriver + 4536213
+18  chromedriver                        0x00000001056aa853 chromedriver + 4556883
+19  chromedriver                        0x000000010568b001 chromedriver + 4427777
+20  chromedriver                        0x00000001056ab59d chromedriver + 4560285
+21  chromedriver                        0x000000010567c48c chromedriver + 4367500
+22  chromedriver                        0x00000001056cb0e8 chromedriver + 4690152
+23  chromedriver                        0x00000001056cb29e chromedriver + 4690590
+24  chromedriver                        0x00000001056dbeee chromedriver + 4759278
+25  libsystem_pthread.dylib             0x00007ff805eaf202 _pthread_start + 99
+26  libsystem_pthread.dylib             0x00007ff805eaabab thread_start + 15
+</msg>
+<status status="FAIL" starttime="20231117 13:26:29.902" endtime="20231117 13:26:30.861"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:29.902" endtime="20231117 13:26:30.861"/>
+</kw>
+<kw name="When Adiciona o texto">
+<arg>${CONT_TEXT}</arg>
+<status status="NOT RUN" starttime="20231117 13:26:30.861" endtime="20231117 13:26:30.862"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${CONT_TITLE}</arg>
+<status status="NOT RUN" starttime="20231117 13:26:30.862" endtime="20231117 13:26:30.862"/>
+</kw>
+<kw name="And Tem o texto">
+<arg>${CONT_TEXT}</arg>
+<status status="NOT RUN" starttime="20231117 13:26:30.862" endtime="20231117 13:26:30.862"/>
+</kw>
+<status status="FAIL" starttime="20231117 13:26:29.811" endtime="20231117 13:26:30.863">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x00000001056e4d28 chromedriver + 4795688
+1   chromedriver                        0x00000001056dc2b3 chromedriver + 4760243
+2   chromedriver                        0x00000001052b588d chromedriver + 407693
+3   chromedriver                        0x00000001052c6c1c chromedriver + 478236
+4   chromedriver                        0x00000001052bc784 chromedriver + 436100
+5   chromedriver                        0x00000001052ba6ed chromedriver + 427757
+6   chromedriver                        0x00000001052be0c4 chromedriver + 442564
+    [ Message content over the limit has been removed. ]
+16  chromedriver                        0x00000001052f731e chromedriver + 676638
+17  chromedriver                        0x00000001056a5795 chromedriver + 4536213
+18  chromedriver                        0x00000001056aa853 chromedriver + 4556883
+19  chromedriver                        0x000000010568b001 chromedriver + 4427777
+20  chromedriver                        0x00000001056ab59d chromedriver + 4560285
+21  chromedriver                        0x000000010567c48c chromedriver + 4367500
+22  chromedriver                        0x00000001056cb0e8 chromedriver + 4690152
+23  chromedriver                        0x00000001056cb29e chromedriver + 4690590
+24  chromedriver                        0x00000001056dbeee chromedriver + 4759278
+25  libsystem_pthread.dylib             0x00007ff805eaf202 _pthread_start + 99
+26  libsystem_pthread.dylib             0x00007ff805eaabab thread_start + 15</status>
 </test>
 <doc>Testes da Tela Sign Up</doc>
-<status status="PASS" starttime="20231117 09:36:11.372" endtime="20231117 09:36:14.719"/>
+<status status="FAIL" starttime="20231117 13:26:22.139" endtime="20231117 13:26:30.864"/>
 </suite>
-<status status="PASS" starttime="20231117 09:36:11.370" endtime="20231117 09:36:14.722"/>
+<status status="FAIL" starttime="20231117 13:26:22.137" endtime="20231117 13:26:30.866"/>
 </suite>
-<status status="PASS" starttime="20231117 09:36:11.368" endtime="20231117 09:36:14.724"/>
+<status status="FAIL" starttime="20231117 13:26:22.135" endtime="20231117 13:26:30.868"/>
 </suite>
-<status status="PASS" starttime="20231117 09:36:11.348" endtime="20231117 09:36:14.726"/>
+<status status="FAIL" starttime="20231117 13:26:22.106" endtime="20231117 13:26:30.871"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="10" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Usb-Teste-Software">Usb-Teste-Software</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1" name="Profiler">Usb-Teste-Software.Profiler</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="Tests">Usb-Teste-Software.Profiler.Tests</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1" name="Main">Usb-Teste-Software.Profiler.Tests.Main</stat>
+<stat pass="10" fail="3" skip="0" id="s1" name="Usb-Teste-Software">Usb-Teste-Software</stat>
+<stat pass="10" fail="3" skip="0" id="s1-s1" name="Profiler">Usb-Teste-Software.Profiler</stat>
+<stat pass="10" fail="3" skip="0" id="s1-s1-s1" name="Tests">Usb-Teste-Software.Profiler.Tests</stat>
+<stat pass="10" fail="3" skip="0" id="s1-s1-s1-s1" name="Main">Usb-Teste-Software.Profiler.Tests.Main</stat>
 </suite>
 </statistics>
 <errors>
